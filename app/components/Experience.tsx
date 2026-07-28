@@ -518,16 +518,32 @@ export default function Experience() {
         </section>
 
         <footer>
-          <a className="brand footer-brand" href="#top">
-            <BrandMark />
-            <span className="brand-word">cerno</span>
-          </a>
-          <p>
-            <em>Feed the mind. Run the room.</em>
-            <br />
-            Launching September 2026
-          </p>
-          <p>© {new Date().getFullYear()} Cerno. All rights reserved.</p>
+          <div className="footer-top">
+            <a className="brand footer-brand" href="#top">
+              <BrandMark />
+              <span className="brand-word">cerno</span>
+            </a>
+            <nav className="footer-links" aria-label="Legal">
+              <a href="/privacy">Privacy</a>
+              <a href="/cookies">Cookies</a>
+              <a href="/terms">Terms</a>
+              <a href="/acceptable-use">Acceptable use</a>
+              <a href="/refunds">Refunds</a>
+              <a href="/legal">Legal</a>
+            </nav>
+          </div>
+          <div className="footer-bottom">
+            <p className="footer-company">
+              CERNO GROUP LTD, registered in England &amp; Wales, company number
+              16882401. Registered office: 167-169 Great Portland Street, Fifth
+              Floor, London, W1W 5PF, United Kingdom.{" "}
+              <a href="mailto:info@cerno.group">info@cerno.group</a>
+            </p>
+            <p className="footer-meta">
+              <em>Feed the mind. Run the room.</em> · Launching September 2026 ·
+              © {new Date().getFullYear()} Cerno.
+            </p>
+          </div>
         </footer>
       </main>
     </div>
