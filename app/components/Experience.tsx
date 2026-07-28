@@ -1,0 +1,535 @@
+"use client";
+
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Lenis from "lenis";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import GalaxyBackground from "./GalaxyBackground";
+import BrandMark from "./BrandMark";
+import { scrollStore } from "../lib/scrollStore";
+
+/* The four everyday features, shown as a numbered set. */
+const features = [
+  {
+    i: "01",
+    name: "Twelve levels",
+    text: "Your literacy and critical thinking skills are trained daily, with different modes focusing on the different facets required for comprehension and nuance.",
+  },
+  {
+    i: "02",
+    name: "The Lexicon",
+    text: "Vocabulary expansion done in a way that genuinely promotes word learning. Research shows that we are exposed to more words today than ever before, but the frequency of repeated exposure is lower than it has ever been. Cerno solves that through the lexicon.",
+  },
+  {
+    i: "03",
+    name: "The Daily Insight",
+    text: "Love a fun fact? You’ll receive a daily treat in the form of an insight, and it could be about any topic. The most interesting minds know small snippets of a lot.",
+  },
+  {
+    i: "04",
+    name: "The Daily Read",
+    text: "A short, daily essay on an idea or concept. Dedicate a small amount of time each day, be it morning or evening, to learning about something interesting.",
+  },
+];
+
+/* The twelve named levels. Descriptor phrases are brand-level, not per-user. */
+const levels = [
+  { n: 1, name: "Rousseau", arch: "Raw curiosity, natural wonder" },
+  { n: 2, name: "Emerson", arch: "Self-reliance, early reflection" },
+  { n: 3, name: "Montaigne", arch: "The essayist, forming opinions" },
+  { n: 4, name: "Voltaire", arch: "Sharp, critical, questioning" },
+  { n: 5, name: "Locke", arch: "Structured thought, early logic" },
+  { n: 6, name: "Hume", arch: "Empirical, sceptical reasoning" },
+  { n: 7, name: "Aristotle", arch: "Systematic, framework-building" },
+  { n: 8, name: "Kant", arch: "Rigorous, demanding abstraction" },
+  { n: 9, name: "Nietzsche", arch: "Challenging, unconventional depth" },
+  { n: 10, name: "Woolf", arch: "Literary intellect, nuance, voice" },
+  { n: 11, name: "Dostoevsky", arch: "Psychological complexity, moral weight" },
+  { n: 12, name: "Borges", arch: "The master, ideas within ideas" },
+];
+
+// A loose constellation the transition draws as you scroll into it.
+const nodes: [number, number][] = [
+  [120, 96],
+  [232, 168],
+  [188, 300],
+  [300, 246],
+  [414, 122],
+  [470, 262],
+  [372, 384],
+  [250, 446],
+  [140, 398],
+];
+const constellationPath = "M " + nodes.map(([x, y]) => `${x} ${y}`).join(" L ");
+
+function hasWebGL() {
+  try {
+    const c = document.createElement("canvas");
+    return !!(
+      window.WebGLRenderingContext &&
+      (c.getContext("webgl2") || c.getContext("webgl"))
+    );
+  } catch {
+    return false;
+  }
+}
+
+export default function Experience() {
+  const root = useRef<HTMLDivElement>(null);
+  const [motion, setMotion] = useState(false);
+  const [showGalaxy, setShowGalaxy] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const enable = !reduce;
+    setMotion(enable);
+    setShowGalaxy(enable && hasWebGL());
+  }, []);
+
+  // Lenis smooth scroll wired into GSAP's ticker + the shared scroll store.
+  useEffect(() => {
+    if (!motion) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    lenis.on("scroll", (e: { progress: number; velocity: number }) => {
+      scrollStore.progress = e.progress;
+      scrollStore.velocity = e.velocity;
+      ScrollTrigger.update();
+      setScrolled(e.progress > 0.008);
+    });
+
+    const raf = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(raf);
+    gsap.ticker.lagSmoothing(0);
+
+    const onMove = (e: PointerEvent) => {
+      scrollStore.px = (e.clientX / window.innerWidth) * 2 - 1;
+      scrollStore.py = -((e.clientY / window.innerHeight) * 2 - 1);
+    };
+    window.addEventListener("pointermove", onMove);
+
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      gsap.ticker.remove(raf);
+      lenis.destroy();
+    };
+  }, [motion]);
+
+  // Scroll-driven choreography, scoped to the root.
+  useLayoutEffect(() => {
+    if (!motion || !root.current) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Hero intro - plays once on load.
+      gsap
+        .timeline({ defaults: { ease: "power3.out", duration: 1 } })
+        .from(".hero-launch", { y: 16, opacity: 0, duration: 0.7 })
+        .from(".hero-eyebrow", { y: 18, opacity: 0, duration: 0.7 }, "-=0.4")
+        .from(
+          ".hero-line",
+          { yPercent: 115, opacity: 0, stagger: 0.12, duration: 1.1 },
+          "-=0.35"
+        )
+        .from(".hero-intro", { y: 24, opacity: 0 }, "-=0.7")
+        .from(".hero-actions > *", { y: 20, opacity: 0, stagger: 0.12 }, "-=0.7")
+        .from(".scroll-cue", { opacity: 0, duration: 1.2 }, "-=0.4");
+
+      // Generic reveal-on-enter.
+      gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) => {
+        gsap.from(el, {
+          y: 46,
+          opacity: 0,
+          duration: 1.05,
+          ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 84%" },
+        });
+      });
+
+      // Kickers drift subtly as they pass.
+      gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
+        const d = parseFloat(el.dataset.parallax || "40");
+        gsap.fromTo(
+          el,
+          { y: d },
+          {
+            y: -d,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
+      });
+
+      // Constellation draws itself, dots pop in.
+      gsap.utils.toArray<SVGPathElement>(".constellation-line").forEach((p) => {
+        const len = p.getTotalLength();
+        gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
+        gsap.to(p, {
+          strokeDashoffset: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".constellation-break",
+            start: "top 78%",
+            end: "bottom 55%",
+            scrub: true,
+          },
+        });
+      });
+      gsap.from(".constellation-node", {
+        scale: 0,
+        opacity: 0,
+        transformOrigin: "center",
+        stagger: 0.07,
+        duration: 0.6,
+        ease: "back.out(2)",
+        scrollTrigger: { trigger: ".constellation-break", start: "top 72%" },
+      });
+
+      // Progression: the central line draws, each level node lights as it enters.
+      const line = root.current!.querySelector(".prog-line");
+      if (line) {
+        gsap.fromTo(
+          line,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            transformOrigin: "top",
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".progression-map",
+              start: "top 70%",
+              end: "bottom 70%",
+              scrub: true,
+            },
+          }
+        );
+      }
+      gsap.utils.toArray<HTMLElement>(".level-row").forEach((row) => {
+        gsap.to(row, {
+          "--lit": 1,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: { trigger: row, start: "top 82%" },
+        });
+      });
+
+      ScrollTrigger.refresh();
+    }, root);
+
+    const id = setTimeout(() => ScrollTrigger.refresh(), 400);
+    return () => {
+      clearTimeout(id);
+      ctx.revert();
+    };
+  }, [motion]);
+
+  // Magnetic hover.
+  useEffect(() => {
+    if (!motion || !root.current) return;
+    const els = Array.from(
+      root.current.querySelectorAll<HTMLElement>(".magnetic")
+    );
+    const cleanups = els.map((el) => {
+      const move = (e: PointerEvent) => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width / 2);
+        const y = e.clientY - (r.top + r.height / 2);
+        gsap.to(el, { x: x * 0.28, y: y * 0.32, duration: 0.5, ease: "power3.out" });
+      };
+      const leave = () =>
+        gsap.to(el, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1,0.4)" });
+      el.addEventListener("pointermove", move);
+      el.addEventListener("pointerleave", leave);
+      return () => {
+        el.removeEventListener("pointermove", move);
+        el.removeEventListener("pointerleave", leave);
+      };
+    });
+    return () => cleanups.forEach((c) => c());
+  }, [motion]);
+
+  return (
+    <div ref={root} className={motion ? "experience motion" : "experience"}>
+      {showGalaxy ? (
+        <GalaxyBackground />
+      ) : (
+        <div className="galaxy-fallback" aria-hidden="true" />
+      )}
+      <div className="page-veil" aria-hidden="true" />
+
+      <header className={scrolled ? "site-header is-scrolled" : "site-header"}>
+        <a className="brand" href="#top" aria-label="Cerno home">
+          <BrandMark />
+          <span className="brand-word">cerno</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="#idea">The idea</a>
+          <a href="#features">Features</a>
+          <a href="#progression">Progression</a>
+          <a className="nav-contact magnetic" href="#contact">
+            Contact
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        {/* HERO */}
+        <section className="hero" id="top">
+          <div className="hero-copy">
+            <p className="hero-launch">
+              <i aria-hidden="true" /> Launching September 2026
+            </p>
+            <p className="hero-eyebrow eyebrow">Feed the mind, run the room</p>
+            <h1 className="hero-title">
+              <span className="line-mask">
+                <span className="hero-line">It begins</span>
+              </span>
+              <span className="line-mask">
+                <span className="hero-line">
+                  with <em>curiosity.</em>
+                </span>
+              </span>
+            </h1>
+            <p className="hero-intro">
+              Cerno&rsquo;s mission is centred around a love of the mind, for we
+              cannot lose that love.
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary magnetic" href="#idea">
+                See how it works <span>↓</span>
+              </a>
+              <a className="text-link" href="#progression">
+                The progression <span>↗</span>
+              </a>
+            </div>
+          </div>
+          <div className="scroll-cue" aria-hidden="true">
+            <span>SCROLL TO DISCOVER</span>
+            <i />
+          </div>
+        </section>
+
+        {/* CONSTELLATION - self-drawing transition + download CTA */}
+        <section className="constellation-break">
+          <svg
+            className="constellation"
+            viewBox="0 0 600 520"
+            aria-hidden="true"
+          >
+            <path
+              className="constellation-line"
+              d={constellationPath}
+              fill="none"
+            />
+            {nodes.map(([x, y], i) => (
+              <circle
+                className="constellation-node"
+                key={i}
+                cx={x}
+                cy={y}
+                r={i % 3 === 0 ? 5 : 3.4}
+              />
+            ))}
+          </svg>
+          <a className="download-app magnetic reveal" href="/download">
+            Download the app <span aria-hidden="true">↓</span>
+          </a>
+        </section>
+
+        {/* THE IDEA */}
+        <section className="idea" id="idea">
+          <div className="section-kicker reveal" data-parallax="26">
+            <span>THE IDEA</span>
+          </div>
+          <div className="idea-grid">
+            <h2 className="reveal">
+              Intelligence is treated as something you have or you don&rsquo;t.
+              But <em>we don&rsquo;t agree.</em>
+            </h2>
+            <div className="idea-side">
+              <div className="idea-copy reveal">
+                <p>
+                  Reading closely, reaching for the exact word, following an
+                  argument all the way to its real conclusion. These are skills,
+                  and skills grow when they are practised well.
+                </p>
+                <p>
+                  Cerno provides a structure for that practice, at a high,
+                  thoughtful standard.
+                </p>
+              </div>
+              <div className="quote-card reveal">
+                <span className="q-mark" aria-hidden="true">
+                  “
+                </span>
+                <p className="q-line">Intelligence compounds.</p>
+                <p className="q-sub">Small habits each day feed the mind.</p>
+                <span className="q-attr">THE CERNO IDEA</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FEATURES - numbered */}
+        <section className="features" id="features">
+          <div className="features-head">
+            <div className="section-kicker light reveal">
+              <span>A FEW MINUTES A DAY</span>
+            </div>
+            <h2 className="reveal">
+              Small habits,
+              <br />
+              done <em>well.</em>
+            </h2>
+            <p className="reveal">
+              Every day Cerno puts something in front of you that is genuinely
+              worth the moment it asks for. A level to climb, a word, a fact,
+              and an idea.
+            </p>
+          </div>
+          <div className="feature-grid">
+            {features.map((f) => (
+              <article className="feature-card reveal" key={f.i}>
+                <span className="feature-num">{f.i}</span>
+                <h3>{f.name}</h3>
+                <p>{f.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* THE PROGRESSION */}
+        <section className="progression" id="progression">
+          <div className="progression-head">
+            <div className="section-kicker light reveal">
+              <span>THE PROGRESSION</span>
+            </div>
+            <h2 className="reveal">
+              Climb minds,
+              <br />
+              <em>progress slowly but surely.</em>
+            </h2>
+          </div>
+
+          <div className="progression-map">
+            <div className="prog-line" aria-hidden="true" />
+            {levels.map((l) => (
+              <div
+                className={
+                  l.n === 12 ? "level-row is-peak" : "level-row"
+                }
+                key={l.n}
+              >
+                <div className="level-card">
+                  <span className="level-num">Level {l.n}</span>
+                  <span className="level-name">{l.name}</span>
+                  <span className="level-arch">{l.arch}</span>
+                </div>
+                <span className="level-node" aria-hidden="true" />
+                <div className="level-spacer" aria-hidden="true" />
+              </div>
+            ))}
+          </div>
+
+          <p className="prog-note reveal">
+            A short assessment sets your first level.
+          </p>
+        </section>
+
+        {/* THE CERNO DILEMMA */}
+        <section className="dilemma" id="dilemma">
+          <div className="dilemma-orbit">
+            <div className="orbit-ring orbit-outer" aria-hidden="true">
+              {Array.from({ length: 8 }, (_, i) => (
+                <span className={`orbit-star orbit-star-${i + 1}`} key={i} />
+              ))}
+            </div>
+            <div className="orbit-ring orbit-inner" />
+            <a className="orbit-core" href="/dilemma-example" aria-label="Enter the Cerno Dilemma">
+              <span>ENTER</span>
+            </a>
+            <div className="orbit-glow" />
+          </div>
+          <div className="dilemma-copy">
+            <div className="section-kicker reveal">
+              <span>THE CERNO DILEMMA</span>
+            </div>
+            <p className="dilemma-cadence reveal">New dilemma every week</p>
+            <blockquote className="dilemma-quote reveal">
+              Every real choice requires you to betray something you believe in.
+              <em> The only question is what.</em>
+            </blockquote>
+            <p className="dilemma-text reveal">
+              Once a week, a moral scenario built with enough layered detail that
+              thoughtful people reach different conclusions. There is no right
+              answer, and none is offered. Only two positions, and the quiet
+              discomfort of choosing one. Take your side, then see how the world
+              voted. It is designed to follow you out of the app and into a real
+              conversation.
+            </p>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section className="contact" id="contact">
+          <div className="contact-copy">
+            <div className="section-kicker light reveal">
+              <span>GET IN TOUCH</span>
+            </div>
+            <h2 className="reveal">
+              Have a question?
+              <br />
+              <em>Let&rsquo;s connect.</em>
+            </h2>
+            <p className="reveal">
+              Whether you want to know more about Cerno, or you need a hand. Get
+              in touch.
+            </p>
+          </div>
+          <div className="contact-options reveal">
+            <a className="magnetic" href="mailto:Kaira@cerno.group">
+              <span>
+                <small>GENERAL ENQUIRIES</small>Kaira@cerno.group
+              </span>
+              <b>↗</b>
+            </a>
+            <a
+              className="magnetic"
+              href="mailto:Tech@cerno.group?subject=Cerno%20support%20request"
+            >
+              <span>
+                <small>TECHNICAL SUPPORT</small>Tech@cerno.group
+              </span>
+              <b>↗</b>
+            </a>
+          </div>
+        </section>
+
+        <footer>
+          <a className="brand footer-brand" href="#top">
+            <BrandMark />
+            <span className="brand-word">cerno</span>
+          </a>
+          <p>
+            <em>Feed the mind. Run the room.</em>
+            <br />
+            Launching September 2026
+          </p>
+          <p>© {new Date().getFullYear()} Cerno. All rights reserved.</p>
+        </footer>
+      </main>
+    </div>
+  );
+}

@@ -40,3 +40,6 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# local inspiration / scratch (not part of the site)
+/DROP FOLDER/
