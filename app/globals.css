@@ -489,6 +489,10 @@ blockquote em {
   padding: clamp(90px, 12vw, 160px) max(6vw, 32px);
   max-width: 1440px;
   margin: auto;
+  scroll-margin-top: 96px;
+}
+#top {
+  scroll-margin-top: 0;
 }
 
 /* Constellation transition + download CTA */
@@ -644,13 +648,26 @@ blockquote em {
   border-color: rgba(201, 169, 97, 0.4);
   background: linear-gradient(165deg, var(--panel-2), transparent);
 }
+.feature-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.feature-icon {
+  display: inline-flex;
+  color: var(--gold-2);
+}
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+}
 .feature-num {
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.22em;
-  color: var(--gold-2);
-  margin-bottom: 26px;
+  color: var(--text-faint);
 }
 .feature-card h3 {
   font-size: 25px;
@@ -661,6 +678,9 @@ blockquote em {
   color: var(--text-dim);
   font-size: 14.5px;
   line-height: 1.75;
+}
+.feature-short {
+  display: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -1168,13 +1188,34 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
+/* ------------------------------------------------------------------ *
+   Phone (<=640px): less text, more air, straight to the point.
+   The heavier prose stays for iPad/desktop.
+ * ------------------------------------------------------------------ */
+@media (max-width: 640px) {
+  .hide-phone {
+    display: none !important;
+  }
+  .feature-full {
+    display: none;
+  }
+  .feature-short {
+    display: block;
+  }
+
   .site-header {
     height: 72px;
     padding: 0 22px;
   }
   .hero {
-    padding: 130px 22px 90px;
+    padding: 122px 22px 84px;
+  }
+  .hero-title {
+    font-size: clamp(44px, 13vw, 62px);
+  }
+  .hero-intro {
+    font-size: 16px;
+    margin-top: 28px;
   }
   .hero-actions {
     flex-direction: column;
@@ -1184,37 +1225,148 @@ footer {
   .scroll-cue {
     display: none;
   }
+
+  /* tighter section rhythm */
+  .idea,
+  .features,
+  .progression,
+  .dilemma,
+  .contact {
+    padding: clamp(60px, 15vw, 88px) 22px;
+  }
+
+  /* The idea → headline + the compounds card only */
+  .idea-grid {
+    margin-top: 28px;
+    gap: 24px;
+  }
+  .idea h2 {
+    font-size: clamp(29px, 8.4vw, 40px);
+  }
+  .quote-card {
+    padding: 30px 26px;
+  }
+
+  /* Features → single column, one-line copy, icon separators */
+  .features-head {
+    margin-bottom: 32px;
+  }
+  .features-head h2 {
+    font-size: clamp(30px, 8.5vw, 42px);
+  }
   .feature-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
-  /* Progression collapses to a single left-aligned rail */
+  .feature-card {
+    padding: 24px 22px;
+  }
+  .feature-head {
+    margin-bottom: 14px;
+  }
+  .feature-card h3 {
+    font-size: 21px;
+    margin-bottom: 7px;
+  }
+  .feature-card p {
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  /* Progression → clean single left rail, names only */
+  .progression-head {
+    margin-bottom: 24px;
+  }
+  .progression-map {
+    max-width: 100%;
+  }
   .prog-line {
     left: 7px;
+    transform: none;
   }
   .level-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-    padding: 14px 0 14px 34px;
+    display: block;
+    position: relative;
+    padding: 9px 0 9px 30px;
+  }
+  .level-card {
+    display: block;
+    text-align: left !important;
+    opacity: calc(0.55 + 0.45 * var(--lit));
   }
   .level-node {
     position: absolute;
-    left: 0;
-    top: 22px;
+    left: 1px;
+    top: 13px;
+    width: 12px;
+    height: 12px;
+    margin: 0;
   }
-  .level-row:nth-child(odd) .level-card,
-  .level-row:nth-child(even) .level-card {
-    grid-column: 1;
-    text-align: left;
+  .level-row.is-peak .level-node {
+    left: -1px;
+    width: 16px;
+    height: 16px;
   }
-  .level-spacer {
+  .level-num {
+    font-size: 9px;
+  }
+  .level-name {
+    font-size: 22px;
+  }
+  .level-row.is-peak .level-name {
+    font-size: 26px;
+  }
+  .level-arch {
     display: none;
   }
+  .prog-note {
+    margin-top: 32px;
+    font-size: 20px;
+  }
+
+  /* Dilemma → small, central ENTER, no long paragraph */
+  .dilemma {
+    text-align: center;
+  }
+  .dilemma-orbit {
+    width: min(52vw, 196px);
+    order: -1;
+    margin: 0 auto;
+  }
+  .dilemma-copy .section-kicker,
+  .contact .section-kicker {
+    justify-content: center;
+  }
+  .dilemma-cadence {
+    text-align: center;
+  }
+  .dilemma-quote {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+  .orbit-core span {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    padding-left: 0.28em;
+  }
+
+  /* Contact → centered heading, tidy links */
+  .contact-copy {
+    text-align: center;
+  }
+  .contact-options a {
+    font-size: 20px;
+  }
+
+  /* Footer */
   .footer-bottom {
     flex-direction: column;
     gap: 14px;
   }
   .footer-meta {
     white-space: normal;
+  }
+  .footer-links {
+    gap: 14px 20px;
   }
 }
 

@@ -8,29 +8,75 @@ import GalaxyBackground from "./GalaxyBackground";
 import BrandMark from "./BrandMark";
 import { scrollStore } from "../lib/scrollStore";
 
-/* The four everyday features, shown as a numbered set. */
+/* The four everyday features. `text` shows on tablet/desktop; `short` is the
+   one-line version used on phones. */
 const features = [
   {
     i: "01",
     name: "Twelve levels",
+    short: "Reading and reasoning, trained daily across twelve levels.",
     text: "Your literacy and critical thinking skills are trained daily, with different modes focusing on the different facets required for comprehension and nuance.",
   },
   {
     i: "02",
     name: "The Lexicon",
+    short: "Vocabulary that actually sticks, one good word at a time.",
     text: "Vocabulary expansion done in a way that genuinely promotes word learning. Research shows that we are exposed to more words today than ever before, but the frequency of repeated exposure is lower than it has ever been. Cerno solves that through the lexicon.",
   },
   {
     i: "03",
     name: "The Daily Insight",
+    short: "One surprising fact a day. A treat for the mind.",
     text: "Love a fun fact? You’ll receive a daily treat in the form of an insight, and it could be about any topic. The most interesting minds know small snippets of a lot.",
   },
   {
     i: "04",
     name: "The Daily Read",
+    short: "A short daily essay on one idea worth your time.",
     text: "A short, daily essay on an idea or concept. Dedicate a small amount of time each day, be it morning or evening, to learning about something interesting.",
   },
 ];
+
+/* Small line-icons that separate the feature cards (helpful on phones). */
+function featureIcon(index: number) {
+  const props = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.4,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+  switch (index) {
+    case 0: // twelve levels — ascending steps
+      return (
+        <svg {...props}>
+          <path d="M3 20h5v-6H3zM9.5 20h5V9h-5zM16 20h5V4h-5z" />
+        </svg>
+      );
+    case 1: // lexicon — open book
+      return (
+        <svg {...props}>
+          <path d="M12 6c-1.6-1-4-1.6-6.2-1.6V17c2.2 0 4.6.6 6.2 1.6 1.6-1 4-1.6 6.2-1.6V4.4C16 4.4 13.6 5 12 6Z" />
+          <path d="M12 6v12" />
+        </svg>
+      );
+    case 2: // daily insight — spark
+      return (
+        <svg {...props}>
+          <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" />
+        </svg>
+      );
+    default: // daily read — page
+      return (
+        <svg {...props}>
+          <path d="M7 3h7l4 4v14H7z" />
+          <path d="M14 3v4h4" />
+          <path d="M10 13h5M10 16h5" />
+        </svg>
+      );
+  }
+}
 
 /* The twelve named levels. Descriptor phrases are brand-level, not per-user. */
 const levels = [
@@ -359,7 +405,7 @@ export default function Experience() {
               But <em>we don&rsquo;t agree.</em>
             </h2>
             <div className="idea-side">
-              <div className="idea-copy reveal">
+              <div className="idea-copy reveal hide-phone">
                 <p>
                   Reading closely, reaching for the exact word, following an
                   argument all the way to its real conclusion. These are skills,
@@ -371,9 +417,6 @@ export default function Experience() {
                 </p>
               </div>
               <div className="quote-card reveal">
-                <span className="q-mark" aria-hidden="true">
-                  “
-                </span>
                 <p className="q-line">Intelligence compounds.</p>
                 <p className="q-sub">Small habits each day feed the mind.</p>
                 <span className="q-attr">THE CERNO IDEA</span>
@@ -393,18 +436,24 @@ export default function Experience() {
               <br />
               done <em>well.</em>
             </h2>
-            <p className="reveal">
+            <p className="reveal hide-phone">
               Every day Cerno puts something in front of you that is genuinely
               worth the moment it asks for. A level to climb, a word, a fact,
               and an idea.
             </p>
           </div>
           <div className="feature-grid">
-            {features.map((f) => (
+            {features.map((f, index) => (
               <article className="feature-card reveal" key={f.i}>
-                <span className="feature-num">{f.i}</span>
+                <div className="feature-head">
+                  <span className="feature-icon" aria-hidden="true">
+                    {featureIcon(index)}
+                  </span>
+                  <span className="feature-num">{f.i}</span>
+                </div>
                 <h3>{f.name}</h3>
-                <p>{f.text}</p>
+                <p className="feature-full">{f.text}</p>
+                <p className="feature-short">{f.short}</p>
               </article>
             ))}
           </div>
@@ -471,7 +520,7 @@ export default function Experience() {
               Every real choice requires you to betray something you believe in.
               <em> The only question is what.</em>
             </blockquote>
-            <p className="dilemma-text reveal">
+            <p className="dilemma-text reveal hide-phone">
               Once a week, a moral scenario built with enough layered detail that
               thoughtful people reach different conclusions. There is no right
               answer, and none is offered. Only two positions, and the quiet
