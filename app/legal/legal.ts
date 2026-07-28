@@ -48,9 +48,46 @@ export function policyBySlug(slug: string): PolicyMeta | undefined {
   return POLICIES.find((p) => p.slug === slug);
 }
 
+/**
+ * Add a `data-label` (the column header) to every table cell so tables can
+ * reflow into labeled cards on small screens.
+ */
+function addTableLabels(html: string): string {
+  return html.replace(/<table>([\s\S]*?)<\/table>/g, (whole, inner) => {
+    const thead = inner.match(/<thead>([\s\S]*?)<\/thead>/);
+    if (!thead) return whole;
+    const headers: string[] = [];
+    const thRe = /<th[^>]*>([\s\S]*?)<\/th>/g;
+    let m: RegExpExecArray | null;
+    while ((m = thRe.exec(thead[1])) !== null) {
+      headers.push(m[1].replace(/<[^>]+>/g, "").trim().replace(/"/g, "&quot;"));
+    }
+    const labelled = inner.replace(
+      /<tbody>([\s\S]*?)<\/tbody>/,
+      (_tb: string, body: string) =>
+        "<tbody>" +
+        body.replace(/<tr>([\s\S]*?)<\/tr>/g, (_tr: string, cells: string) => {
+          let i = 0;
+          const withLabels = cells.replace(
+            /<td([^>]*)>/g,
+            (_td: string, attrs: string) => {
+              const label = headers[i] || "";
+              i += 1;
+              return `<td${attrs} data-label="${label}">`;
+            }
+          );
+          return `<tr>${withLabels}</tr>`;
+        }) +
+        "</tbody>"
+    );
+    return `<table>${labelled}</table>`;
+  });
+}
+
 /** Read a policy's markdown at build time and render it to HTML. */
 export async function renderPolicy(slug: string): Promise<string> {
   const file = path.join(process.cwd(), "app", "legal", "content", `${slug}.md`);
   const md = fs.readFileSync(file, "utf8");
-  return await marked.parse(md, { gfm: true });
+  const html = await marked.parse(md, { gfm: true });
+  return addTableLabels(html);
 }

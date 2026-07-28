@@ -1711,6 +1711,101 @@ footer {
 .legal-foot a {
   color: #7a6a3e;
 }
+.legal td[data-label]::before {
+  display: none;
+}
+
+/* Legal pages on phones: tighter layout, swipeable nav, tables → cards */
+@media (max-width: 640px) {
+  .legal-top {
+    padding: 14px 18px;
+  }
+  .legal-home {
+    font-size: 21px;
+  }
+  .legal-shell {
+    padding: 26px 18px 56px;
+  }
+  .legal-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    gap: 7px;
+    scrollbar-width: none;
+  }
+  .legal-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .legal-nav a {
+    flex: 0 0 auto;
+    font-size: 12px;
+    padding: 6px 13px;
+    white-space: nowrap;
+  }
+  .legal h1 {
+    font-size: 27px;
+  }
+  .legal h2 {
+    font-size: 20px;
+    margin-top: 34px;
+  }
+  .legal h3 {
+    font-size: 15.5px;
+  }
+  .legal p,
+  .legal li {
+    font-size: 15px;
+  }
+  .legal blockquote {
+    padding: 12px 16px;
+    font-size: 15.5px;
+  }
+
+  /* Reflow tables into stacked, labeled cards so nothing overflows */
+  .legal table {
+    display: block;
+    overflow: visible;
+    font-size: 14.5px;
+    margin: 14px 0 22px;
+  }
+  .legal thead {
+    display: none;
+  }
+  .legal tbody {
+    display: block;
+  }
+  .legal tr {
+    display: block;
+    border: 1px solid #e2ddcf;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    background: #faf8f2;
+    overflow: hidden;
+  }
+  .legal td {
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ece7d9;
+    padding: 11px 15px;
+  }
+  .legal tr td:last-child {
+    border-bottom: none;
+  }
+  .legal td[data-label]::before {
+    display: block;
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #9a8f66;
+    margin-bottom: 4px;
+  }
+  .legal-foot {
+    padding: 24px 18px 36px;
+  }
+}
 
 /* --------------------------------------------------------------------------
    Cookie consent banner
