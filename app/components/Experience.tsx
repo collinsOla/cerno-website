@@ -20,19 +20,19 @@ const features = [
   {
     i: "02",
     name: "The Lexicon",
-    short: "Training vocabulary to stick",
+    short: "Training vocabulary to stick.",
     text: "Vocabulary expansion done in a way that genuinely promotes word learning. Research shows that we are exposed to more words today than ever before, but the frequency of repeated exposure is lower than it has ever been. Cerno solves that through the lexicon.",
   },
   {
     i: "03",
     name: "The Daily Insight",
-    short: "A fact a day, a treat for the mind",
+    short: "A fact a day, a treat for the mind.",
     text: "Love a fun fact? You’ll receive a daily treat in the form of an insight, and it could be about any topic. The most interesting minds know small snippets of a lot.",
   },
   {
     i: "04",
     name: "The Daily Read",
-    short: "A short daily essay to dedicate some time to",
+    short: "A short daily essay on an interesting concept.",
     text: "A short, daily essay on an idea or concept. Dedicate a small amount of time each day, be it morning or evening, to learning about something interesting.",
   },
 ];
