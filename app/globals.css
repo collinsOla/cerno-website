@@ -1481,6 +1481,191 @@ footer {
 }
 
 /* --------------------------------------------------------------------------
+   Cookie consent banner
+-------------------------------------------------------------------------- */
+.cookie-banner {
+  position: fixed;
+  z-index: 200;
+  left: 50%;
+  bottom: max(18px, 2vw);
+  transform: translateX(-50%);
+  width: min(1060px, calc(100vw - 28px));
+  padding: 22px 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  background: rgba(12, 16, 28, 0.97);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 70px -22px rgba(0, 0, 0, 0.75);
+  color: var(--text);
+  animation: cookieUp 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@keyframes cookieUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 22px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.cookie-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+}
+.cookie-text {
+  flex: 1 1 400px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+.cookie-title {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--text);
+}
+.cookie-text p {
+  margin: 0;
+}
+.cookie-text a {
+  color: var(--gold-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cookie-actions {
+  display: flex;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+.cookie-btn {
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, filter 0.25s ease, border-color 0.25s ease;
+}
+.cookie-reject {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--line-strong);
+  color: var(--text);
+}
+.cookie-reject:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.cookie-accept,
+.cookie-save {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  color: #201704;
+}
+.cookie-accept:hover,
+.cookie-save:hover {
+  filter: brightness(1.06);
+}
+.cookie-customise {
+  flex: 0 0 auto;
+  background: none;
+  border: none;
+  padding: 6px 2px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cookie-customise:hover {
+  color: var(--text);
+}
+.cookie-prefs {
+  flex-basis: 100%;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.cookie-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+.cookie-row span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cookie-row strong {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+.cookie-row em {
+  font-size: 12px;
+  font-style: normal;
+  color: var(--text-faint);
+}
+.cookie-row input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.cookie-row-locked input {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.footer-cookie-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--text-faint);
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+.footer-cookie-link:hover {
+  color: var(--gold-2);
+}
+.legal-cookie-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: inherit;
+  color: #7a6a3e;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal-cookie-link:hover {
+  color: #4a3f22;
+}
+@media (max-width: 640px) {
+  .cookie-actions {
+    flex: 1 1 100%;
+  }
+  .cookie-btn {
+    flex: 1;
+  }
+  .cookie-customise {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Reduced motion
 -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -1493,7 +1678,8 @@ footer {
   .orbit-inner,
   .orbit-core,
   .hero-launch i,
-  .brand-ring {
+  .brand-ring,
+  .cookie-banner {
     animation: none;
   }
   * {

@@ -46,7 +46,12 @@ export default function LegalIndex() {
           Floor, London, W1W 5PF, United Kingdom.{" "}
           <a href="mailto:info@cerno.group">info@cerno.group</a>
         </p>
-        <p>© {new Date().getFullYear()} Cerno. All rights reserved.</p>
+        <p>
+          © {new Date().getFullYear()} Cerno. All rights reserved.{" "}
+          <button type="button" className="legal-cookie-link" data-cookie-settings>
+            Cookie settings
+          </button>
+        </p>
       </footer>
     </div>
   );

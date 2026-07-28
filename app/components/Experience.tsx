@@ -530,6 +530,9 @@ export default function Experience() {
               <a href="/acceptable-use">Acceptable use</a>
               <a href="/refunds">Refunds</a>
               <a href="/legal">Legal</a>
+              <button type="button" className="footer-cookie-link" data-cookie-settings>
+                Cookie settings
+              </button>
             </nav>
           </div>
           <div className="footer-bottom">
