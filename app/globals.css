@@ -112,6 +112,15 @@ a {
 em {
   font-style: italic;
 }
+.only-phone {
+  display: none;
+}
+.ui-arrow {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.12em;
+}
 
 /* --------------------------------------------------------------------------
    Galaxy layers
@@ -542,6 +551,24 @@ blockquote em {
 .constellation-node {
   fill: #fff;
   filter: drop-shadow(0 0 7px rgba(217, 189, 130, 0.95));
+}
+
+/* Horizontal constellation divider (between the dilemma and contact) */
+.constellation-divider {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(6px, 3vw, 40px) max(6vw, 32px);
+}
+.constellation-divider .constellation {
+  width: 100%;
+  max-width: 880px;
+}
+.constellation-h .constellation-line {
+  stroke-width: 0.9;
 }
 
 /* --------------------------------------------------------------------------
@@ -1138,6 +1165,15 @@ footer {
 .footer-links a:hover {
   color: var(--gold-2);
 }
+.footer-policies {
+  color: var(--gold-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 7px 16px;
+}
+.footer-policies:hover {
+  border-color: var(--gold);
+}
 .footer-bottom {
   display: flex;
   align-items: baseline;
@@ -1195,6 +1231,9 @@ footer {
 @media (max-width: 640px) {
   .hide-phone {
     display: none !important;
+  }
+  .only-phone {
+    display: inline-flex !important;
   }
   .feature-full {
     display: none;
@@ -1273,55 +1312,43 @@ footer {
     line-height: 1.6;
   }
 
-  /* Progression → clean single left rail, names only */
+  /* Progression → keep the desktop central ladder, fitted for phones */
   .progression-head {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
   .progression-map {
     max-width: 100%;
   }
-  .prog-line {
-    left: 7px;
-    transform: none;
-  }
   .level-row {
-    display: block;
-    position: relative;
-    padding: 9px 0 9px 30px;
-  }
-  .level-card {
-    display: block;
-    text-align: left !important;
-    opacity: calc(0.55 + 0.45 * var(--lit));
-  }
-  .level-node {
-    position: absolute;
-    left: 1px;
-    top: 13px;
-    width: 12px;
-    height: 12px;
-    margin: 0;
-  }
-  .level-row.is-peak .level-node {
-    left: -1px;
-    width: 16px;
-    height: 16px;
+    grid-template-columns: 1fr 20px 1fr;
+    gap: 8px;
+    padding: 15px 0;
   }
   .level-num {
-    font-size: 9px;
+    font-size: 8px;
+    letter-spacing: 0.16em;
   }
   .level-name {
-    font-size: 22px;
-  }
-  .level-row.is-peak .level-name {
-    font-size: 26px;
+    font-size: clamp(16px, 4.8vw, 21px);
   }
   .level-arch {
-    display: none;
+    font-size: 10.5px;
+    line-height: 1.4;
+  }
+  .level-node {
+    width: 11px;
+    height: 11px;
+  }
+  .level-row.is-peak .level-node {
+    width: 15px;
+    height: 15px;
+  }
+  .level-row.is-peak .level-name {
+    font-size: clamp(18px, 5.6vw, 24px);
   }
   .prog-note {
-    margin-top: 32px;
-    font-size: 20px;
+    margin-top: 30px;
+    font-size: 19px;
   }
 
   /* Dilemma → small, central ENTER, no long paragraph */

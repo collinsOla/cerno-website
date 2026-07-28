@@ -14,7 +14,19 @@ export default function DownloadPage() {
         know the moment it lands.
       </p>
       <a className="cs-cta" href="/waitlist">
-        Join the waitlist <span aria-hidden="true">→</span>
+        Join the waitlist
+        <svg
+          className="ui-arrow"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.5}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" />
+        </svg>
       </a>
       <a className="cs-back" href="/">
         Back to cerno

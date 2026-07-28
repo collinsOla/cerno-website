@@ -20,19 +20,19 @@ const features = [
   {
     i: "02",
     name: "The Lexicon",
-    short: "Vocabulary that actually sticks, one good word at a time.",
+    short: "Training vocabulary to stick",
     text: "Vocabulary expansion done in a way that genuinely promotes word learning. Research shows that we are exposed to more words today than ever before, but the frequency of repeated exposure is lower than it has ever been. Cerno solves that through the lexicon.",
   },
   {
     i: "03",
     name: "The Daily Insight",
-    short: "One surprising fact a day. A treat for the mind.",
+    short: "A fact a day, a treat for the mind",
     text: "Love a fun fact? You’ll receive a daily treat in the form of an insight, and it could be about any topic. The most interesting minds know small snippets of a lot.",
   },
   {
     i: "04",
     name: "The Daily Read",
-    short: "A short daily essay on one idea worth your time.",
+    short: "A short daily essay to dedicate some time to",
     text: "A short, daily essay on an idea or concept. Dedicate a small amount of time each day, be it morning or evening, to learning about something interesting.",
   },
 ];
@@ -94,6 +94,40 @@ const levels = [
   { n: 12, name: "Borges", arch: "The master, ideas within ideas" },
 ];
 
+/* Proper line arrows (never render as emoji). */
+function ArrowDown() {
+  return (
+    <svg
+      className="ui-arrow"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M8 3v10M3.5 8.5 8 13l4.5-4.5" />
+    </svg>
+  );
+}
+function ArrowUpRight() {
+  return (
+    <svg
+      className="ui-arrow"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 11 11 5M5.5 5H11v5.5" />
+    </svg>
+  );
+}
+
 // A loose constellation the transition draws as you scroll into it.
 const nodes: [number, number][] = [
   [120, 96],
@@ -107,6 +141,19 @@ const nodes: [number, number][] = [
   [140, 398],
 ];
 const constellationPath = "M " + nodes.map(([x, y]) => `${x} ${y}`).join(" L ");
+
+// A wide, horizontal constellation used as a divider between sections.
+const hNodes: [number, number][] = [
+  [40, 74],
+  [180, 40],
+  [320, 92],
+  [470, 52],
+  [610, 96],
+  [760, 44],
+  [900, 84],
+  [980, 58],
+];
+const hConstellationPath = "M " + hNodes.map(([x, y]) => `${x} ${y}`).join(" L ");
 
 function hasWebGL() {
   try {
@@ -218,29 +265,34 @@ export default function Experience() {
         );
       });
 
-      // Constellation draws itself, dots pop in.
-      gsap.utils.toArray<SVGPathElement>(".constellation-line").forEach((p) => {
-        const len = p.getTotalLength();
-        gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
-        gsap.to(p, {
-          strokeDashoffset: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".constellation-break",
-            start: "top 78%",
-            end: "bottom 55%",
-            scrub: true,
-          },
+      // Each constellation draws itself + pops its dots, triggered by its section.
+      gsap.utils.toArray<SVGElement>(".constellation").forEach((svg) => {
+        const section = svg.closest("section") || svg;
+        svg
+          .querySelectorAll<SVGPathElement>(".constellation-line")
+          .forEach((p) => {
+            const len = p.getTotalLength();
+            gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
+            gsap.to(p, {
+              strokeDashoffset: 0,
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                start: "top 82%",
+                end: "bottom 55%",
+                scrub: true,
+              },
+            });
+          });
+        gsap.from(svg.querySelectorAll(".constellation-node"), {
+          scale: 0,
+          opacity: 0,
+          transformOrigin: "center",
+          stagger: 0.06,
+          duration: 0.6,
+          ease: "back.out(2)",
+          scrollTrigger: { trigger: section, start: "top 80%" },
         });
-      });
-      gsap.from(".constellation-node", {
-        scale: 0,
-        opacity: 0,
-        transformOrigin: "center",
-        stagger: 0.07,
-        duration: 0.6,
-        ease: "back.out(2)",
-        scrollTrigger: { trigger: ".constellation-break", start: "top 72%" },
       });
 
       // Progression: the central line draws, each level node lights as it enters.
@@ -354,10 +406,10 @@ export default function Experience() {
             </p>
             <div className="hero-actions">
               <a className="button button-primary magnetic" href="#idea">
-                See how it works <span>↓</span>
+                See how it works <span><ArrowDown /></span>
               </a>
               <a className="text-link" href="#progression">
-                The progression <span>↗</span>
+                The progression <span><ArrowUpRight /></span>
               </a>
             </div>
           </div>
@@ -390,7 +442,7 @@ export default function Experience() {
             ))}
           </svg>
           <a className="download-app magnetic reveal" href="/download">
-            Download the app <span aria-hidden="true">↓</span>
+            Download the app <span><ArrowDown /></span>
           </a>
         </section>
 
@@ -531,6 +583,30 @@ export default function Experience() {
           </div>
         </section>
 
+        {/* HORIZONTAL CONSTELLATION DIVIDER */}
+        <section className="constellation-divider" aria-hidden="true">
+          <svg
+            className="constellation constellation-h"
+            viewBox="0 0 1020 130"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <path
+              className="constellation-line"
+              d={hConstellationPath}
+              fill="none"
+            />
+            {hNodes.map(([x, y], i) => (
+              <circle
+                className="constellation-node"
+                key={i}
+                cx={x}
+                cy={y}
+                r={i % 3 === 0 ? 4.5 : 3}
+              />
+            ))}
+          </svg>
+        </section>
+
         {/* CONTACT */}
         <section className="contact" id="contact">
           <div className="contact-copy">
@@ -552,7 +628,9 @@ export default function Experience() {
               <span>
                 <small>GENERAL ENQUIRIES</small>Kaira@cerno.group
               </span>
-              <b>↗</b>
+              <b>
+                <ArrowUpRight />
+              </b>
             </a>
             <a
               className="magnetic"
@@ -561,7 +639,9 @@ export default function Experience() {
               <span>
                 <small>TECHNICAL SUPPORT</small>Tech@cerno.group
               </span>
-              <b>↗</b>
+              <b>
+                <ArrowUpRight />
+              </b>
             </a>
           </div>
         </section>
@@ -573,12 +653,15 @@ export default function Experience() {
               <span className="brand-word">cerno</span>
             </a>
             <nav className="footer-links" aria-label="Legal">
-              <a href="/privacy">Privacy</a>
-              <a href="/cookies">Cookies</a>
-              <a href="/terms">Terms</a>
-              <a href="/acceptable-use">Acceptable use</a>
-              <a href="/refunds">Refunds</a>
-              <a href="/legal">Legal</a>
+              <a className="hide-phone" href="/privacy">Privacy</a>
+              <a className="hide-phone" href="/cookies">Cookies</a>
+              <a className="hide-phone" href="/terms">Terms</a>
+              <a className="hide-phone" href="/acceptable-use">Acceptable use</a>
+              <a className="hide-phone" href="/refunds">Refunds</a>
+              <a className="hide-phone" href="/legal">Legal</a>
+              <a className="footer-policies only-phone" href="/legal">
+                Policies
+              </a>
               <button type="button" className="footer-cookie-link" data-cookie-settings>
                 Cookie settings
               </button>
