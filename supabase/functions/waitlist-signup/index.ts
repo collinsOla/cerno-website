@@ -25,7 +25,12 @@ Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
   if (req.method !== "POST") return json({ error: "method_not_allowed" }, 405);
 
-  let payload: { email?: string; region?: string; consent?: boolean };
+  let payload: {
+    firstName?: string;
+    email?: string;
+    region?: string;
+    consent?: boolean;
+  };
   try {
     payload = await req.json();
   } catch {
@@ -35,6 +40,8 @@ Deno.serve(async (req: Request) => {
   const email = (payload.email ?? "").trim().toLowerCase();
   if (!EMAIL_RE.test(email)) return json({ error: "invalid_email" }, 400);
   if (!payload.consent) return json({ error: "consent_required" }, 400);
+
+  const firstName = (payload.firstName ?? "").trim();
 
   const res = await fetch("https://api.brevo.com/v3/contacts", {
     method: "POST",
@@ -46,6 +53,7 @@ Deno.serve(async (req: Request) => {
     body: JSON.stringify({
       email,
       attributes: {
+        FIRSTNAME: firstName,
         REGION: payload.region ?? "",
         SOURCE: "website-waitlist",
       },

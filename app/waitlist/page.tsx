@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function WaitlistPage() {
   return (
-    <ComingSoon eyebrow="THE WAITLIST" title="Join the waitlist">
+    <ComingSoon eyebrow="THE WAITLIST" title="Launching September 2026">
       <p className="cs-sub">
-        Cerno launches in September 2026. Leave your email and we&rsquo;ll let
-        you know the moment it opens.
+        We are no longer accepting submissions for beta testing. Join the
+        waitlist to gain access to the app upon launch.
       </p>
       <WaitlistForm />
       <a className="cs-back" href="/">

@@ -25,6 +25,7 @@ type Status = "idle" | "loading" | "success" | "error";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function WaitlistForm() {
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [region, setRegion] = useState("");
   const [consent, setConsent] = useState(false);
@@ -37,6 +38,11 @@ export default function WaitlistForm() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!firstName.trim()) {
+      setStatus("error");
+      setMessage("Please enter your first name.");
+      return;
+    }
     if (!EMAIL_RE.test(email)) {
       setStatus("error");
       setMessage("Please enter a valid email address.");
@@ -62,6 +68,7 @@ export default function WaitlistForm() {
           Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
         },
         body: JSON.stringify({
+          firstName: firstName.trim(),
           email: email.trim(),
           region,
           consent: true,
@@ -91,6 +98,20 @@ export default function WaitlistForm() {
 
   return (
     <form className="wl-form" onSubmit={onSubmit} noValidate>
+      <input
+        className="wl-input"
+        type="text"
+        autoComplete="given-name"
+        placeholder="First name"
+        aria-label="First name"
+        value={firstName}
+        onChange={(e) => {
+          setFirstName(e.target.value);
+          clearError();
+        }}
+        required
+      />
+
       <input
         className="wl-input"
         type="email"
