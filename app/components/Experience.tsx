@@ -630,7 +630,6 @@ export default function Experience() {
                 <ArrowUpRight />
               </b>
             </a>
-            <span className="contact-direct">info@cerno.group</span>
           </div>
         </section>
 
@@ -659,12 +658,11 @@ export default function Experience() {
             <p className="footer-company">
               CERNO GROUP LTD, registered in England &amp; Wales, company number
               16882401. Registered office: 167-169 Great Portland Street, Fifth
-              Floor, London, W1W 5PF, United Kingdom.{" "}
-              <a href="mailto:info@cerno.group">info@cerno.group</a>
+              Floor, London, W1W 5PF, United Kingdom.
             </p>
             <p className="footer-meta">
-              <em>Feed the mind. Run the room.</em> · Launching September 2026 ·
-              © {new Date().getFullYear()} Cerno.
+              <span className="footer-email">info@cerno.group</span> · Launching
+              September 2026 · © {new Date().getFullYear()} Cerno.
             </p>
           </div>
         </footer>

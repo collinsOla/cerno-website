@@ -1117,12 +1117,6 @@ blockquote em {
   width: 16px;
   height: 16px;
 }
-.contact-direct {
-  margin-top: 20px;
-  font-size: 13px;
-  letter-spacing: 0.03em;
-  color: var(--text-dim);
-}
 
 /* --------------------------------------------------------------------------
    Footer
@@ -1195,9 +1189,8 @@ footer {
   margin: 0;
   white-space: nowrap;
 }
-.footer-meta em {
-  color: var(--gold-2);
-  font-style: italic;
+.footer-email {
+  color: #fff;
 }
 
 /* --------------------------------------------------------------------------
@@ -1644,6 +1637,15 @@ footer {
 /* Contact form (on the /contact page) — reuses the .wl-* field styles */
 .wl-form.is-contact {
   max-width: 540px;
+}
+/* Honeypot — off-screen, never shown to or focusable by real users */
+.wl-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 .wl-row {
   display: flex;

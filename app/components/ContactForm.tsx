@@ -20,6 +20,8 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  // Honeypot: hidden from real users; if a bot fills it, we drop the submit.
+  const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -29,6 +31,11 @@ export default function ContactForm() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    // Bot filled the hidden field — pretend it worked, send nothing.
+    if (website) {
+      setStatus("success");
+      return;
+    }
     if (!firstName.trim() || !lastName.trim()) {
       setStatus("error");
       setError("Please enter your first and last name.");
@@ -91,6 +98,17 @@ export default function ContactForm() {
 
   return (
     <form className="wl-form is-contact" onSubmit={onSubmit} noValidate>
+      <input
+        className="wl-hp"
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={website}
+        onChange={(e) => setWebsite(e.target.value)}
+      />
+
       <div className="wl-row">
         <input
           className="wl-input"
