@@ -624,24 +624,14 @@ export default function Experience() {
             </p>
           </div>
           <div className="contact-options reveal">
-            <a className="magnetic" href="mailto:Kaira@cerno.group">
-              <span>
-                <small>GENERAL ENQUIRIES</small>Kaira@cerno.group
-              </span>
+            <a className="contact-cta magnetic" href="/contact">
+              <span>Contact us</span>
               <b>
                 <ArrowUpRight />
               </b>
             </a>
-            <a
-              className="magnetic"
-              href="mailto:Tech@cerno.group?subject=Cerno%20support%20request"
-            >
-              <span>
-                <small>TECHNICAL SUPPORT</small>Tech@cerno.group
-              </span>
-              <b>
-                <ArrowUpRight />
-              </b>
+            <a className="contact-direct" href="mailto:info@cerno.group">
+              info@cerno.group
             </a>
           </div>
         </section>
