@@ -42,17 +42,16 @@ function StarDust() {
   const points = useRef<THREE.Points>(null!);
   const { camera } = useThree();
 
-  const COUNT = 9000;
+  const COUNT = 12000;
   const CLUSTERS = 9;
 
   const warm = useMemo(() => new THREE.Color("#fbf8f0"), []);
   const cool = useMemo(() => new THREE.Color("#dce6f6"), []);
   const gold = useMemo(() => new THREE.Color("#c9a961"), []);
 
-  const { positions, colors, sizes } = useMemo(() => {
+  const { positions, colors } = useMemo(() => {
     const positions = new Float32Array(COUNT * 3);
     const colors = new Float32Array(COUNT * 3);
-    const sizes = new Float32Array(COUNT);
     const c = new THREE.Color();
 
     // A handful of soft cluster centres give the field a fluid, nebular
@@ -91,17 +90,15 @@ function StarDust() {
       else if (roll < 0.4) c.copy(cool);
       else c.copy(warm);
 
-      // ~8% slightly brighter "feature" stars; the rest are dim dust. Kept
-      // small and crisp so they read as stars, not soft blobs.
-      const feature = Math.random() < 0.08;
-      const b = feature ? 0.8 + Math.random() * 0.2 : 0.3 + Math.random() * 0.28;
+      // Uniform dim brightness across the whole field — no bright "feature"
+      // stars that would bloom into big blurry blobs. Every dot is an equal,
+      // tiny pinprick; only the colour varies.
+      const b = 0.42 + Math.random() * 0.22;
       colors[i3] = c.r * b;
       colors[i3 + 1] = c.g * b;
       colors[i3 + 2] = c.b * b;
-
-      sizes[i] = feature ? 0.95 + Math.random() * 0.5 : 0.35 + Math.random() * 0.4;
     }
-    return { positions, colors, sizes };
+    return { positions, colors };
   }, [warm, cool, gold]);
 
   const dotTex = useMemo(() => makeDotTexture(), []);
@@ -133,16 +130,17 @@ function StarDust() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         <bufferAttribute attach="attributes-color" args={[colors, 3]} />
-        <bufferAttribute attach="attributes-size" args={[sizes, 1]} />
       </bufferGeometry>
+      {/* sizeAttenuation off → every dot is the SAME minuscule pixel size no
+          matter its depth, so none swell up near the camera. */}
       <pointsMaterial
-        size={0.024}
-        sizeAttenuation
+        size={2}
+        sizeAttenuation={false}
         vertexColors
         map={dotTex}
         alphaMap={dotTex}
         transparent
-        opacity={0.9}
+        opacity={0.85}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
       />
@@ -159,15 +157,15 @@ export default function GalaxyBackground() {
         camera={{ position: [0, 0.2, 9], fov: 60 }}
       >
         <StarDust />
-        {/* Only the brightest feature stars bloom, and only a little, so the
-            dust stays fine and text stays legible. */}
+        {/* Gentle collective glow only — the high threshold means no single
+            dot blooms into a blob; dense clusters just haze softly together. */}
         <EffectComposer>
           <Bloom
-            intensity={0.5}
-            luminanceThreshold={0.55}
-            luminanceSmoothing={0.4}
+            intensity={0.32}
+            luminanceThreshold={0.82}
+            luminanceSmoothing={0.5}
             mipmapBlur
-            radius={0.6}
+            radius={0.5}
           />
         </EffectComposer>
       </Canvas>
