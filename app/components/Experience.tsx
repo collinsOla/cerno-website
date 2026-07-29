@@ -630,9 +630,7 @@ export default function Experience() {
                 <ArrowUpRight />
               </b>
             </a>
-            <a className="contact-direct" href="mailto:info@cerno.group">
-              info@cerno.group
-            </a>
+            <span className="contact-direct">info@cerno.group</span>
           </div>
         </section>
 

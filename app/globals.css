@@ -1122,10 +1122,6 @@ blockquote em {
   font-size: 13px;
   letter-spacing: 0.03em;
   color: var(--text-dim);
-  transition: color 0.25s ease;
-}
-.contact-direct:hover {
-  color: var(--gold-2);
 }
 
 /* --------------------------------------------------------------------------
@@ -1476,10 +1472,6 @@ footer {
   font-size: 13px;
   letter-spacing: 0.03em;
   color: var(--text-dim);
-  transition: color 0.25s ease;
-}
-.cs-direct:hover {
-  color: var(--gold-2);
 }
 .cs-back {
   margin-top: 12px;

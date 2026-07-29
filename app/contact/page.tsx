@@ -16,9 +16,7 @@ export default function ContactPage() {
         and we&rsquo;ll get back to you.
       </p>
       <ContactForm />
-      <a className="cs-direct" href="mailto:info@cerno.group">
-        info@cerno.group
-      </a>
+      <span className="cs-direct">info@cerno.group</span>
       <a className="cs-back" href="/">
         Back to cerno
       </a>
