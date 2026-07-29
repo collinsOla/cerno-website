@@ -573,12 +573,12 @@ export default function Experience() {
               <em> The only question is what.</em>
             </blockquote>
             <p className="dilemma-text reveal hide-phone">
-              Once a week, a moral scenario built with enough layered detail that
+              Once a week, a moral scenario built with enough layers that
               thoughtful people reach different conclusions. There is no right
-              answer, and none is offered. Only two positions, and the quiet
-              discomfort of choosing one. Take your side, then see how the world
-              voted. It is designed to follow you out of the app and into a real
-              conversation.
+              answer, and none is offered. Only two positions, and the
+              discomfort of choosing one. Take your side, then see how everyone
+              else voted. It is designed to follow you out of the app and into a
+              real conversation.
             </p>
           </div>
         </section>
