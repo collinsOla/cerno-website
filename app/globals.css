@@ -1481,6 +1481,168 @@ footer {
   border-color: var(--gold);
 }
 
+/* Waitlist signup form (on the /waitlist coming-soon page) */
+.wl-form {
+  width: 100%;
+  max-width: 440px;
+  margin: 12px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wl-input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.wl-input::placeholder {
+  color: var(--text-faint);
+}
+.wl-input:focus {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.08);
+}
+.wl-select-wrap {
+  position: relative;
+}
+.wl-select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--text-faint);
+  border-bottom: 1.5px solid var(--text-faint);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+.wl-select {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.wl-select:focus {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.08);
+}
+.wl-select.is-placeholder {
+  color: var(--text-faint);
+}
+.wl-select option {
+  color: #1b1b1b;
+}
+.wl-submit {
+  width: 100%;
+  margin-top: 4px;
+  padding: 16px 26px;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #201704;
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  cursor: pointer;
+  box-shadow: 0 12px 40px -14px rgba(201, 169, 97, 0.7);
+  transition: filter 0.25s ease, box-shadow 0.25s ease;
+}
+.wl-submit:hover:not(:disabled) {
+  filter: brightness(1.06);
+  box-shadow: 0 16px 50px -12px rgba(201, 169, 97, 0.9);
+}
+.wl-submit:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+.wl-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 4px 2px 0;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+.wl-consent input {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+.wl-msg {
+  margin: 0;
+  font-size: 13px;
+}
+.wl-error {
+  color: #e6b8a2;
+}
+.wl-fine {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.02em;
+}
+.wl-fine a {
+  color: var(--gold-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.wl-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+.wl-tick {
+  font-size: 26px;
+  color: var(--gold-2);
+  text-shadow: 0 0 18px rgba(201, 169, 97, 0.6);
+}
+.wl-success-title {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 32px);
+  color: var(--text);
+}
+.wl-success-sub {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 15px;
+}
+@media (max-width: 560px) {
+  .wl-row {
+    flex-direction: column;
+  }
+  .wl-submit {
+    width: 100%;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Legal / policy pages — white background, black text, maximum legibility
 -------------------------------------------------------------------------- */
