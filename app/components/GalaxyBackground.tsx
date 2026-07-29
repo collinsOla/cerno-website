@@ -42,7 +42,7 @@ function StarDust() {
   const points = useRef<THREE.Points>(null!);
   const { camera } = useThree();
 
-  const COUNT = 12000;
+  const COUNT = 9000;
   const CLUSTERS = 9;
 
   const warm = useMemo(() => new THREE.Color("#fbf8f0"), []);
@@ -90,10 +90,10 @@ function StarDust() {
       else if (roll < 0.4) c.copy(cool);
       else c.copy(warm);
 
-      // Uniform dim brightness across the whole field — no bright "feature"
-      // stars that would bloom into big blurry blobs. Every dot is an equal,
-      // tiny pinprick; only the colour varies.
-      const b = 0.42 + Math.random() * 0.22;
+      // The same fine dust brightness as before — but with NO bright "feature"
+      // tier, since those were the big blurry dots that bloomed and floated
+      // around. Just subtle, even pinpricks; only the colour varies.
+      const b = 0.3 + Math.random() * 0.28;
       colors[i3] = c.r * b;
       colors[i3 + 1] = c.g * b;
       colors[i3 + 2] = c.b * b;
@@ -131,16 +131,14 @@ function StarDust() {
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
-      {/* sizeAttenuation off → every dot is the SAME minuscule pixel size no
-          matter its depth, so none swell up near the camera. */}
       <pointsMaterial
-        size={2}
-        sizeAttenuation={false}
+        size={0.024}
+        sizeAttenuation
         vertexColors
         map={dotTex}
         alphaMap={dotTex}
         transparent
-        opacity={0.85}
+        opacity={0.9}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
       />
@@ -157,15 +155,15 @@ export default function GalaxyBackground() {
         camera={{ position: [0, 0.2, 9], fov: 60 }}
       >
         <StarDust />
-        {/* Gentle collective glow only — the high threshold means no single
-            dot blooms into a blob; dense clusters just haze softly together. */}
+        {/* Soft cluster haze only — individual dust sits below threshold so
+            nothing blooms into a blob; only dense overlaps glow faintly. */}
         <EffectComposer>
           <Bloom
-            intensity={0.32}
-            luminanceThreshold={0.82}
+            intensity={0.42}
+            luminanceThreshold={0.6}
             luminanceSmoothing={0.5}
             mipmapBlur
-            radius={0.5}
+            radius={0.55}
           />
         </EffectComposer>
       </Canvas>
