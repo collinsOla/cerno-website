@@ -376,7 +376,7 @@ export default function Experience() {
           <a href="#idea">The idea</a>
           <a href="#features">Features</a>
           <a href="#progression">Progression</a>
-          <a className="nav-contact magnetic" href="#contact">
+          <a className="nav-contact magnetic" href="/contact">
             Contact
           </a>
         </nav>
