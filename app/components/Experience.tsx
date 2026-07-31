@@ -61,10 +61,12 @@ function featureIcon(index: number) {
           <path d="M12 6v12" />
         </svg>
       );
-    case 2: // daily insight — spark
+    case 2: // daily insight — lightbulb
       return (
         <svg {...props}>
-          <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z" />
+          <path d="M9 18h6" />
+          <path d="M10 21h4" />
+          <path d="M8.5 14c-.3-1-.9-1.7-1.6-2.4A5 5 0 1 1 17 8a5 5 0 0 1-1.9 3.6c-.7.7-1.3 1.4-1.6 2.4" />
         </svg>
       );
     default: // daily read — page
