@@ -1,4 +1,4 @@
-# Cerno Privacy Policy
+# Privacy Policy
 
 **Last updated: 28 July 2026**
 

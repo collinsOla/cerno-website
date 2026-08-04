@@ -642,7 +642,7 @@ export default function Experience() {
               <span className="brand-word">cerno</span>
             </a>
             <nav className="footer-links" aria-label="Legal">
-              <a className="hide-phone" href="/privacy">Privacy</a>
+              <a href="/privacy">Privacy Policy</a>
               <a className="hide-phone" href="/cookies">Cookies</a>
               <a className="hide-phone" href="/terms">Terms</a>
               <a className="hide-phone" href="/acceptable-use">Acceptable use</a>

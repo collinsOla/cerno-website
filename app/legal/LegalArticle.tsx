@@ -1,7 +1,7 @@
 import { POLICIES } from "./legal";
 
-/* A single policy page: white background, black text, one readable column,
-   with a policy switcher and the required company identity in the footer. */
+/* A single readable policy column with a policy switcher and the required
+   company identity in the footer. The privacy route uses the site theme. */
 export default function LegalArticle({
   slug,
   html,
@@ -10,7 +10,7 @@ export default function LegalArticle({
   html: string;
 }) {
   return (
-    <div className="legal-page">
+    <div className={`legal-page${slug === "privacy" ? " legal-page-themed" : ""}`}>
       <header className="legal-top">
         <a className="legal-home" href="/">
           cerno
