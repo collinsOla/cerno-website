@@ -1197,7 +1197,7 @@ footer {
    Responsive
 -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
-  nav a:not(.nav-contact) {
+  .site-header nav a:not(.nav-contact) {
     display: none;
   }
   .idea-grid,
