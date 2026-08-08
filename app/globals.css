@@ -281,6 +281,12 @@ nav a:hover {
   border-color: var(--gold);
   color: var(--void) !important;
 }
+.nav-dilemma {
+  color: var(--gold);
+}
+.nav-dilemma:hover {
+  color: var(--gold-2);
+}
 
 /* --------------------------------------------------------------------------
    Shared type
@@ -1197,8 +1203,11 @@ footer {
    Responsive
 -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
-  .site-header nav a:not(.nav-contact) {
+  .site-header nav a:not(.nav-contact):not(.nav-dilemma) {
     display: none;
+  }
+  .site-header nav {
+    gap: 18px;
   }
   .idea-grid,
   .contact,
@@ -1392,7 +1401,7 @@ footer {
 }
 
 /* --------------------------------------------------------------------------
-   Coming-soon / placeholder pages (/download, /waitlist, /dilemma-example)
+   Coming-soon / placeholder pages (/download, /waitlist)
 -------------------------------------------------------------------------- */
 .coming-soon {
   position: relative;
@@ -2555,5 +2564,12 @@ button.dl-cell.has .dl-dnum { color: var(--text); }
   .dl-legend { gap: 8px 14px; font-size: 10.5px; margin-top: 14px; }
   .dl-selhead { margin-top: 34px; }
   .dl-rescard { padding: 20px 18px; }
+}
+
+/* Home header on phones: make room for the Dilemma link beside Contact. */
+@media (max-width: 560px) {
+  .site-header { padding: 0 16px; }
+  .site-header nav { gap: 13px; font-size: 11px; }
+  .nav-contact { padding: 9px 14px; }
 }
 
