@@ -1,11 +1,11 @@
 {
-  "date": "2026-08-08",
-  "id": "92a1a2bf-51c4-44cf-b392-be96c9e422cb",
-  "category_label": "CRIMINAL JUSTICE",
-  "title": "The Wrong Man's Freedom",
+  "date": "2026-08-09",
+  "id": "15f48efb-b0de-4d36-adab-81311c2e5e56",
+  "category_label": "HOUSING",
+  "title": "The List",
   "byline": "by Cerno",
-  "scenario": "Twelve years ago a woman was killed in her home. A man named Reuben was convicted on the testimony of a single eyewitness and has served twelve years of a life sentence.\n\nA review has now found that the eyewitness identification was obtained improperly and cannot stand. Without it there is no case, and Reuben's conviction will be quashed. He has always maintained his innocence.\n\nThe dead woman's brother has asked to speak at the hearing. He wants to say, on the record and in Reuben's presence, that he believes Reuben killed his sister, that the family has never accepted otherwise, and that they will spend the rest of their lives certain of it. He is not a witness and has no evidence. He is asking to accuse a man who is about to be declared, in law, not guilty, in the room where that happens.\n\nThe judge can permit the statement or refuse it.",
-  "question": "Should the brother be allowed to speak?",
-  "option_a_text": "Refuse. A man cleared by the state, even on a technicality, must not be branded a murderer on his way out of the dock by someone with no evidence.",
-  "option_b_text": "Allow it. The family lost more than anyone here, and a court that silences their grief to protect a released man's reputation has stopped serving justice."
+  "scenario": "A city keeps a single waiting list for social housing. Eleven thousand households are on it, ordered by a points system built over years to be blind to charm, articulacy and connections. A family near the top has waited six years in a damp one-bedroom flat with their two children.\n\nA woman comes to the housing office with her two children. A nine-year-old son and a four-year-old daughter. She left a violent partner eight weeks ago, has been moved between three temporary hostels, and her son has stopped speaking. A doctor writes that another move will do lasting harm. Under the points system she ranks four hundredth. A two-bedroom flat is available now, and the family on the waitlist were given hope about a change in their situation.\n\nThe officer has discretion to make an exceptional allocation. Every such allocation pushes everyone below her back, including the family of six years, who have no doctor's letter and no one to speak for them, only their place in line. It is unclear when the next flat will be available.",
+  "question": "Should the officer give the flat to the woman and her children?",
+  "option_a_text": "Give it to her. A rule that cannot bend for an abused and vulnerable family in front of you is not fairness, it is bookkeeping.",
+  "option_b_text": "Follow the list. The queue is the only protection the inarticulate and unrepresented have, and to snatch away the hope they were given is wrong."
 }
