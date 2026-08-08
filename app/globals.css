@@ -2395,8 +2395,8 @@ footer {
 /* scenario */
 .dl-scenario { margin: 30px auto; max-width: 640px; }
 .dl-scenario p {
-  font-family: var(--font-display); font-weight: 400; font-size: clamp(17px, 2.3vw, 20px);
-  line-height: 1.7; color: var(--text-dim); margin: 0 0 1.1rem; text-align: center;
+  font-family: var(--font-display); font-weight: 600; font-size: clamp(17px, 2.3vw, 20px);
+  line-height: 1.7; color: #ffffff; margin: 0 0 1.1rem; text-align: center;
 }
 .dl-scenario p:last-child { margin-bottom: 0; }
 
@@ -2474,9 +2474,9 @@ footer {
 .dl-dow span { text-align: center; font-family: var(--font-sans); font-weight: 600; font-size: 10px; letter-spacing: 0.08em; color: var(--text-faint); text-transform: uppercase; padding: 3px 0; }
 .dl-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
 .dl-cell {
-  aspect-ratio: 1 / 1; border-radius: 11px; border: 1px solid transparent; position: relative;
+  aspect-ratio: 1 / 1; min-width: 0; border-radius: 11px; border: 1px solid transparent; position: relative;
   display: flex; flex-direction: column; padding: 7px 8px; font-size: 12px;
-  background: none; text-align: left; color: inherit;
+  background: none; text-align: left; color: inherit; overflow: hidden;
 }
 .dl-cell.empty { opacity: 0.18; }
 .dl-cell .dl-dnum { color: var(--text-faint); font-weight: 600; }
@@ -2536,4 +2536,24 @@ button.dl-cell.has .dl-dnum { color: var(--text); }
 }
 .dl-back:hover { color: var(--gold); }
 .dl-footer { text-align: center; color: var(--text-faint); font-size: 12px; padding: 70px 0 46px; }
+
+/* --- Dilemma pages: phone --- */
+@media (max-width: 560px) {
+  .dl-wrap { padding: 0 14px; }
+  .dl-hero { padding: 28px 0 6px; }
+  .dl-callout { font-size: 12.5px; padding: 11px 15px; border-radius: 14px; text-align: left; line-height: 1.4; }
+  .dl-cal { padding: 16px 12px 18px; border-radius: 14px; }
+  .dl-calnav h3 { font-size: 19px; }
+  .dl-dow { gap: 4px; }
+  .dl-dow span { font-size: 9px; letter-spacing: 0.03em; padding: 2px 0; }
+  .dl-grid { gap: 4px; }
+  .dl-cell { padding: 4px; border-radius: 8px; font-size: 11px; }
+  .dl-cell .dl-dnum { font-size: 11px; }
+  .dl-cell .dl-mini { height: 4px; }
+  .dl-cell.today .dl-livebadge { font-size: 7px; top: 3px; right: 4px; }
+  .dl-cell.today .dl-livetxt { display: none; }
+  .dl-legend { gap: 8px 14px; font-size: 10.5px; margin-top: 14px; }
+  .dl-selhead { margin-top: 34px; }
+  .dl-rescard { padding: 20px 18px; }
+}
 
