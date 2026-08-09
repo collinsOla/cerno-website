@@ -2566,6 +2566,49 @@ button.dl-cell.has .dl-dnum { color: var(--text); }
   .dl-rescard { padding: 20px 18px; }
 }
 
+/* ==========================================================================
+   /links — Cerno's own link hub (bio link, not in the site nav)
+   ========================================================================== */
+.lt-page {
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+  padding: 64px 22px 48px;
+  background:
+    radial-gradient(900px 560px at 50% -10%, rgba(123, 155, 196, 0.13), transparent 60%),
+    radial-gradient(760px 520px at 50% 112%, rgba(201, 169, 97, 0.07), transparent 55%),
+    var(--void);
+}
+.lt-inner { width: 100%; max-width: 440px; text-align: center; }
+.lt-logo {
+  display: block; width: 280px; max-width: 80%; height: auto; margin: 8px auto 16px;
+}
+.lt-handle { color: var(--gold); font-size: 13px; letter-spacing: 0.04em; margin: 0; }
+.lt-tag { color: var(--text-faint); font-size: 13.5px; margin: 10px 0 34px; }
+.lt-links { display: flex; flex-direction: column; align-items: stretch; gap: 13px; }
+.lt-link {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  padding: 16px 42px; border-radius: 999px; text-decoration: none;
+  background: linear-gradient(180deg, rgba(26, 34, 54, 0.7), rgba(18, 24, 41, 0.6));
+  border: 1px solid var(--line); color: var(--text);
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+.lt-link:hover {
+  transform: translateY(-2px); border-color: var(--gold);
+  background: linear-gradient(180deg, rgba(201, 169, 97, 0.12), rgba(18, 24, 41, 0.6));
+}
+.lt-link .lt-lbl {
+  text-transform: none;
+  font-family: var(--font-display); color: #ffffff; font-weight: 600; font-size: 18px; letter-spacing: 0.01em;
+}
+.lt-link .lt-ext {
+  position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+  width: 15px; height: 15px; color: var(--text-faint); transition: color 0.18s, transform 0.18s;
+}
+.lt-link:hover .lt-ext { color: var(--gold); transform: translateY(-50%) translateX(2px); }
+.lt-link:hover .lt-ext { color: var(--gold); transform: translateX(2px); }
+.lt-foot { margin-top: 34px; }
+.lt-foot a { color: var(--text-faint); font-size: 12.5px; text-decoration: none; transition: color 0.2s; }
+.lt-foot a:hover { color: var(--gold); }
+
 /* Home header on phones: make room for the Dilemma link beside Contact. */
 @media (max-width: 560px) {
   .site-header { padding: 0 16px; }
