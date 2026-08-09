@@ -195,7 +195,9 @@ export default function DilemmaCalendar({
             </div>
             <h3>{sel.title}</h3>
             <p className="dl-rq">{sel.question}</p>
-            <div className="dl-final">Final result</div>
+            <div className="dl-final">
+              Final result <span className="dl-final-note">(Cerno App Users)</span>
+            </div>
             <div className="dl-bar">
               <span className="a" style={{ width: `${sel.result.a_pct}%` }} />
               <span className="b" style={{ width: `${sel.result.b_pct}%` }} />

@@ -106,7 +106,9 @@ export default async function DilemmaDatePage({
 
         {r ? (
           <div className="dl-fullresult">
-            <div className="dl-final">Final result</div>
+            <div className="dl-final">
+              Final result <span className="dl-final-note">(Cerno App Users)</span>
+            </div>
             <div className="dl-bar">
               <span className="a" style={{ width: `${r.a_pct}%` }} />
               <span className="b" style={{ width: `${r.b_pct}%` }} />
