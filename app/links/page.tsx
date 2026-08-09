@@ -25,8 +25,7 @@ const links: LtLink[] = [
   { label: "Today's Dilemma", href: "/dilemma", external: false },
   { label: "Join the waitlist", href: "/waitlist", external: false },
   { label: "Instagram", href: "https://www.instagram.com/cernoapp", external: true },
-  // TODO: replace "#" with the Cerno TikTok link
-  { label: "TikTok", href: "#", external: true },
+  { label: "TikTok", href: "https://www.tiktok.com/@cernoapp", external: true },
 ];
 
 export default function LinksPage() {
