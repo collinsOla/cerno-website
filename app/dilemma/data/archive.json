@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-08-09",
+      "id": "15f48efb-b0de-4d36-adab-81311c2e5e56",
+      "category_label": "HOUSING",
+      "title": "The List",
+      "byline": "by Cerno",
+      "scenario": "A city keeps a single waiting list for social housing. Eleven thousand households are on it, ordered by a points system built over years to be blind to charm, articulacy and connections. A family near the top has waited six years in a damp one-bedroom flat with their two children.\n\nA woman comes to the housing office with her two children. A nine-year-old son and a four-year-old daughter. She left a violent partner eight weeks ago, has been moved between three temporary hostels, and her son has stopped speaking. A doctor writes that another move will do lasting harm. Under the points system she ranks four hundredth. A two-bedroom flat is available now, and the family on the waitlist were given hope about a change in their situation.\n\nThe officer has discretion to make an exceptional allocation. Every such allocation pushes everyone below her back, including the family of six years, who have no doctor's letter and no one to speak for them, only their place in line. It is unclear when the next flat will be available.",
+      "question": "Should the officer give the flat to the woman and her children?",
+      "option_a_text": "Give it to her. A rule that cannot bend for an abused and vulnerable family in front of you is not fairness, it is bookkeeping.",
+      "option_b_text": "Follow the list. The queue is the only protection the inarticulate and unrepresented have, and to snatch away the hope they were given is wrong.",
+      "result": {
+        "a": 6,
+        "b": 11,
+        "total": 17,
+        "a_pct": 35,
+        "b_pct": 65
+      }
+    },
+    {
       "date": "2026-08-08",
       "id": "92a1a2bf-51c4-44cf-b392-be96c9e422cb",
       "category_label": "CRIMINAL JUSTICE",
