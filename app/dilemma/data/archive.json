@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-08-11",
+      "id": "103af197-d4e9-4cc7-b916-32bdce9fc312",
+      "category_label": "EDUCATION",
+      "title": "The Scholarship",
+      "byline": "by Cerno",
+      "scenario": "A university offers one fully funded scholarship each year to a student from the region's poorest district. Without it, neither finalist can afford to attend at all.\n\nThe first, Amara, has the higher grades and the stronger record by a clear margin. She is talented, hardworking, and would almost certainly succeed anywhere. Her family is poor but stable; she has a place, though unfunded, at a lesser university she could scrape through.\n\nThe second, Daniel, has weaker marks but a far harder life: no parents, part-time work since fourteen, a school that failed him at every turn. The committee believes he has more raw potential than his transcript shows, and that for him this is the only door that will ever open. If he is passed over, he will not study at all.\n\nThe scholarship exists to reward merit and to lift those the system has failed. Both cannot be honoured.",
+      "question": "Who should receive the scholarship?",
+      "option_a_text": "Amara. The scholarship rewards achievement, and giving it to the lesser candidate punishes the very excellence education is meant to cultivate.",
+      "option_b_text": "Daniel. The scholarship exists to open doors that would otherwise stay shut, and Amara has one that he does not.",
+      "result": {
+        "a": 3,
+        "b": 14,
+        "total": 17,
+        "a_pct": 18,
+        "b_pct": 82
+      }
+    },
+    {
       "date": "2026-08-10",
       "id": "c899f08f-c3be-4974-ad7a-29362451534a",
       "category_label": "TECHNOLOGY",
