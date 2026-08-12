@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-08-12",
+      "id": "1fb01542-3ac6-41df-8080-2604aca16494",
+      "category_label": "MONEY AND WORK",
+      "title": "The Severance",
+      "byline": "by Cerno",
+      "scenario": "A small manufacturing firm is closing one of its two plants. Management has set aside a fixed pool of money for severance, enough to be meaningful but not enough to be generous to everyone.\n\nThe union representative, Maria, must recommend how to divide it. She can split it evenly, so every laid-off worker receives the same modest sum. Or she can weight it by need: larger payments to those with dependents, medical debts, or no prospect of re-employment, and far less to the young and single who will likely find work within weeks.\n\nMany of the workers who would receive less under the needs-based plan have given the firm twenty or thirty years. They argue that severance is earned by service, not awarded by hardship, and that treating a decade of loyalty as worth the same as a single mother's rent insults everything they gave. The desperate cases argue that money should go where survival depends on it.",
+      "question": "Should Maria divide the money evenly by service, or by need?",
+      "option_a_text": "Severance is earned. Years of labour create a claim that hardship cannot override, and rewarding need over service betrays those who gave the most.",
+      "option_b_text": "Money should prevent ruin. A sum that merely tops up the comfortable while others lose their homes has been misspent.",
+      "result": {
+        "a": 8,
+        "b": 6,
+        "total": 14,
+        "a_pct": 57,
+        "b_pct": 43
+      }
+    },
+    {
       "date": "2026-08-11",
       "id": "103af197-d4e9-4cc7-b916-32bdce9fc312",
       "category_label": "EDUCATION",

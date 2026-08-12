@@ -1,11 +1,11 @@
 {
-  "date": "2026-08-12",
-  "id": "1fb01542-3ac6-41df-8080-2604aca16494",
-  "category_label": "MONEY AND WORK",
-  "title": "The Severance",
+  "date": "2026-08-13",
+  "id": "1c1ab37f-c236-4541-bf2e-aa098001c793",
+  "category_label": "CRIMINAL JUSTICE",
+  "title": "The Alibi",
   "byline": "by Cerno",
-  "scenario": "A small manufacturing firm is closing one of its two plants. Management has set aside a fixed pool of money for severance, enough to be meaningful but not enough to be generous to everyone.\n\nThe union representative, Maria, must recommend how to divide it. She can split it evenly, so every laid-off worker receives the same modest sum. Or she can weight it by need: larger payments to those with dependents, medical debts, or no prospect of re-employment, and far less to the young and single who will likely find work within weeks.\n\nMany of the workers who would receive less under the needs-based plan have given the firm twenty or thirty years. They argue that severance is earned by service, not awarded by hardship, and that treating a decade of loyalty as worth the same as a single mother's rent insults everything they gave. The desperate cases argue that money should go where survival depends on it.",
-  "question": "Should Maria divide the money evenly by service, or by need?",
-  "option_a_text": "Severance is earned. Years of labour create a claim that hardship cannot override, and rewarding need over service betrays those who gave the most.",
-  "option_b_text": "Money should prevent ruin. A sum that merely tops up the comfortable while others lose their homes has been misspent."
+  "scenario": "A jury is deliberating a murder charge against a nineteen-year-old named Marcus. The murder was brutal and the victim's mother underwent a nervous breakdown upon learning about what was done to her daughter. The physical evidence is thin, and the case turns almost entirely on one witness: Marcus's younger sister, Ada, who is twelve.\n\nAda testified, under oath, that her brother was home with her the entire night of the killing. The prosecutor has established that Marcus is the only guardian Ada has left, and that if he is convicted she will enter the care of the state. Ada told the court, weeping, \"He reads to me every night. He is all I have.\"\n\nThe jurors know a child that age, testifying to save the person she loves and depends on, is the least reliable kind of witness. They also know that if they set her account aside, they set aside the only voice that stands between Marcus and a life sentence, and she may be telling the truth. There is no other witness to weigh her against. Her word is the whole of the doubt.",
+  "question": "Should the jury treat Ada's testimony as credible reasonable doubt?",
+  "option_a_text": "Believe her. A sworn account that places him elsewhere is doubt, and doubt must acquit; the state must prove its case, not the child disprove it.",
+  "option_b_text": "Set it aside. A frightened child protecting the only family she has cannot be the reed a murder verdict rests on; that is not proof, it is love."
 }
