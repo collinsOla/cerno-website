@@ -1,11 +1,11 @@
 {
-  "date": "2026-08-14",
-  "id": "2f6c3293-67cc-4814-be9b-d06c6688f141",
-  "category_label": "COMMUNITY",
-  "title": "The Well",
+  "date": "2026-08-15",
+  "id": "a17ee178-beb8-4d72-9d9b-87775ad5d650",
+  "category_label": "MEDICINE",
+  "title": "The Second Liver",
   "byline": "by Cerno",
-  "scenario": "A remote village of two hundred people has one working well, dug and maintained for decades by a single family. The family has always let everyone draw water freely.\n\nA drought has now dropped the water table. There is enough for the village to survive if strictly rationed, or enough for a small number of families to keep their livestock and gardens alive while the rest lose everything but drinking water.\n\nThe family who owns the well has proposed that they, and the four households who helped dig it a generation ago, take a larger share to save their herds, which are the only livestock in the village and the source of its milk and breeding stock. Everyone else would get drinking rations only.\n\nThe village must decide together. Some argue the water belongs equally to all who need it now, and that setting such a system up breeds a slippery slope of inequality. Others argue that without the herds, the whole village has no future once the rains return.",
-  "question": "Should the water be split equally, or should the herd-owning families receive more?",
-  "option_a_text": "Water is survival, and in a crisis it belongs equally to every mouth. No one's livestock outranks another's child's thirst.",
-  "option_b_text": "Save the herds. Equal shares that leave the village with nothing to rebuild on is a fair way to starve slowly together."
+  "scenario": "A donor liver has become available. Two patients on the ward match it, and only one can receive it.\n\nThe first is a woman of thirty-four who has never touched alcohol. Her liver is failing from a rare inherited disease. Her doctors give her a seventy percent chance of surviving five years with the transplant.\n\nThe second is a man of fifty-one whose liver was destroyed by twenty years of drinking. He has been sober for six years, sponsors others in recovery, and has followed every instruction his doctors gave him. He has been on the list for two years. Her name was added four months ago. His five-year survival chance with the transplant is also seventy percent.\n\nWithout the organ, both will likely die within weeks. The transplant committee must decide tonight. The only difference between them is how they came to be ill, and how long they have waited.",
+  "question": "Who should receive the liver?",
+  "option_a_text": "The woman. Waiting time cannot outweigh the fact that his illness was self-inflicted and hers was not.",
+  "option_b_text": "The man. Medicine treats disease, not biography, and he waited his turn."
 }
