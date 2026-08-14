@@ -570,13 +570,15 @@ export default function Experience() {
             <div className="section-kicker reveal">
               <span>THE CERNO DILEMMA</span>
             </div>
-            <p className="dilemma-cadence reveal">A new dilemma every day</p>
+            <p className="dilemma-cadence reveal">
+              A new dilemma every Wednesday and Sunday
+            </p>
             <blockquote className="dilemma-quote reveal">
               Every real choice requires you to betray something you believe in.
               <em> The only question is what.</em>
             </blockquote>
             <p className="dilemma-text reveal hide-phone">
-              Every day, a moral scenario built with enough layers that
+              Twice a week, a moral scenario built with enough layers that
               thoughtful people reach different conclusions. There is no right
               answer, and none is offered. Only two positions, and the
               discomfort of choosing one. Take your side, then see how everyone

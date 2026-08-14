@@ -124,7 +124,7 @@ export default async function DilemmaDatePage({
           </div>
         ) : (
           <p className="dl-ctahint" style={{ marginTop: "34px" }}>
-            Voting is open today — the result appears here once the next dilemma
+            Voting is open now — the result appears here once the next dilemma
             goes live.
           </p>
         )}

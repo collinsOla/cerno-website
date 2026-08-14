@@ -5,10 +5,13 @@
  * Supabase project and writes two static JSON files the website builds from:
  *
  *   app/dilemma/data/today.json    – the dilemma live RIGHT NOW (no vote %)
- *   app/dilemma/data/archive.json  – every PAST day, with its FINAL vote %
+ *   app/dilemma/data/archive.json  – every SUPERSEDED release, final vote %
  *
- * Run daily from GitHub Actions (see .github/workflows/refresh-dilemmas.yml),
- * then commit the changed files — the commit triggers the Pages deploy.
+ * Dilemmas are released on Wednesdays and Sundays (daily until 2026-08-16), so
+ * the live one stays live for several days; the script still runs daily and is
+ * a no-op on the days between. Run from GitHub Actions (see
+ * .github/workflows/refresh-dilemmas.yml), then commit the changed files — the
+ * commit triggers the Pages deploy.
  *
  * TIMEZONE: "today" is computed in Europe/London (BST in summer, GMT in
  * winter), NOT the runner's UTC clock — the same UK-time rule the mobile app
@@ -16,8 +19,9 @@
  * DST switch, so the workflow fires at both 23:05 and 00:05 UTC and this
  * script is idempotent + write-once, so extra runs are harmless.
  *
- * WRITE-ONCE: once a day's result is in archive.json it is never overwritten.
- * That freezes each result exactly as it stood when the next dilemma went out,
+ * WRITE-ONCE: once a release's result is in archive.json it is never
+ * overwritten, and nothing is archived until the NEXT dilemma is live. That
+ * freezes each result exactly as it stood when the next dilemma went out,
  * regardless of any later voting on a recycled dilemma.
  * -------------------------------------------------------------------------
  */
@@ -138,7 +142,11 @@ async function main() {
   for (const d of dilemmas) {
     const date = d._siteDate;
     if (date < ARCHIVE_START) continue; // ignore the pre-daily weekly history
-    if (date >= today) continue; // today + future are not yet final
+    // A dilemma is final only once the NEXT one has gone out. Releases are
+    // Wednesdays and Sundays, so the live dilemma's own date is days behind
+    // "today" for most of its run — freezing on `date < today` would snapshot a
+    // half-finished vote and, being write-once, keep it forever.
+    if (date >= activeToday._siteDate) continue; // still live (or future)
     if (byDate.has(date)) continue; // already frozen — never overwrite
 
     const agg = await sb(

@@ -177,7 +177,7 @@ export default function DilemmaCalendar({
                 outline: "1px solid var(--gold)",
               }}
             />
-            Today — live, no result yet
+            Live now — no result yet
           </span>
         </div>
       </div>

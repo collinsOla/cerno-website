@@ -8,9 +8,25 @@ const MONTHS = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
 ];
+const DAYS = [
+  "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+];
 function longDate(iso: string) {
   const [y, m, d] = iso.split("-").map(Number);
   return `${d} ${MONTHS[m - 1]} ${y}`;
+}
+
+// Releases land on Wednesdays and Sundays, so the live dilemma stays up for
+// three or four days. The next release is simply the next Wed/Sun after the
+// live one's date — derived from the data, so it can never disagree with what
+// is on the page (UTC maths only; these are plain calendar dates).
+const RELEASE_DOW = [0, 3]; // Sunday, Wednesday
+function nextReleaseAfter(iso: string) {
+  const d = new Date(`${iso}T00:00:00Z`);
+  do {
+    d.setUTCDate(d.getUTCDate() + 1);
+  } while (!RELEASE_DOW.includes(d.getUTCDay()));
+  return { iso: d.toISOString().slice(0, 10), weekday: DAYS[d.getUTCDay()] };
 }
 
 export const metadata: Metadata = {
@@ -22,6 +38,7 @@ export default function DilemmaPage() {
   const t = today as DilemmaDay;
   const days = (archive.days as DilemmaDay[]) ?? [];
   const paragraphs = t.scenario.split(/\n\n+/);
+  const next = nextReleaseAfter(t.date);
 
   return (
     <div className="dl-page">
@@ -45,7 +62,11 @@ export default function DilemmaPage() {
           <h1 className="dl-title">{t.title}</h1>
           <div className="dl-byline">{t.byline}</div>
           <div className="dl-today">
-            Today · <b>{longDate(t.date)}</b>
+            Live now · <b>{longDate(t.date)}</b>
+          </div>
+          <div className="dl-cadence">
+            New dilemmas Wednesdays &amp; Sundays · next on {next.weekday}{" "}
+            {longDate(next.iso)}
           </div>
         </header>
 

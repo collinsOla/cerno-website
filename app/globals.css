@@ -2400,6 +2400,7 @@ footer {
 .dl-byline { position: relative; font-size: 13px; color: var(--text-faint); font-style: italic; }
 .dl-today { position: relative; display: inline-block; margin-top: 14px; font-size: 12px; color: var(--text-faint); letter-spacing: 0.06em; }
 .dl-today b { color: var(--gold-2); font-weight: 600; }
+.dl-cadence { margin-top: 6px; font-size: 12px; color: var(--text-faint); letter-spacing: 0.04em; }
 
 /* scenario */
 .dl-scenario { margin: 30px auto; max-width: 640px; }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Cerno · Links",
-  description: "Everything Cerno in one place — the daily dilemma, the app, and our socials.",
+  description: "Everything Cerno in one place — the Cerno Dilemma, the app, and our socials.",
   robots: { index: false, follow: true },
 };
 
@@ -22,7 +22,7 @@ type LtLink = {
 
 // Add more links here as they come — order top-to-bottom.
 const links: LtLink[] = [
-  { label: "Today's Dilemma", href: "/dilemma", external: false },
+  { label: "The Cerno Dilemma", href: "/dilemma", external: false },
   { label: "Join the waitlist", href: "/waitlist", external: false },
   { label: "Instagram", href: "https://www.instagram.com/cernoapp", external: true },
   { label: "TikTok", href: "https://www.tiktok.com/@cernoapp", external: true },
