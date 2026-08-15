@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-08-15",
+      "id": "a17ee178-beb8-4d72-9d9b-87775ad5d650",
+      "category_label": "MEDICINE",
+      "title": "The Second Liver",
+      "byline": "by Cerno",
+      "scenario": "A donor liver has become available. Two patients on the ward match it, and only one can receive it.\n\nThe first is a woman of thirty-four who has never touched alcohol. Her liver is failing from a rare inherited disease. Her doctors give her a seventy percent chance of surviving five years with the transplant.\n\nThe second is a man of fifty-one whose liver was destroyed by twenty years of drinking. He has been sober for six years, sponsors others in recovery, and has followed every instruction his doctors gave him. He has been on the list for two years. Her name was added four months ago. His five-year survival chance with the transplant is also seventy percent.\n\nWithout the organ, both will likely die within weeks. The transplant committee must decide tonight. The only difference between them is how they came to be ill, and how long they have waited.",
+      "question": "Who should receive the liver?",
+      "option_a_text": "The woman. Waiting time cannot outweigh the fact that his illness was self-inflicted and hers was not.",
+      "option_b_text": "The man. Medicine treats disease, not biography, and he waited his turn.",
+      "result": {
+        "a": 4,
+        "b": 5,
+        "total": 9,
+        "a_pct": 44,
+        "b_pct": 56
+      }
+    },
+    {
       "date": "2026-08-14",
       "id": "2f6c3293-67cc-4814-be9b-d06c6688f141",
       "category_label": "COMMUNITY",
