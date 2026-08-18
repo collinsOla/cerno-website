@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-08-16",
+      "id": "1140ea2d-1d84-41c4-8829-c8e783d2c460",
+      "category_label": "PUBLIC LIFE",
+      "title": "The Statement",
+      "byline": "by Cerno",
+      "scenario": "A woman is appointed to run the city's ambulance service, which has been failing for years. She is widely regarded as the only person capable of fixing it, and within a year response times have fallen sharply.\n\nA journalist then uncovers a paper she wrote twelve years ago, at twenty-nine, already a qualified registrar, and presented to a health policy conference. In it she argued that the elderly poor consumed more healthcare than they contribute and should sit lower in the queue where the resource is finite. It was an argument made seriously that she presented with data. There is a recording. She has never publicly repeated the view, and has spent the years since in public medicine, much of it in geriatric care.\n\nEighteen months ago she designed a triage protocol that deprioritises repeat low-acuity callers from residential settings. An independent clinical body has reviewed it and called it sound. It is also the single change that most improved response times overall, and the group it moves down the queue is, in practice, the frail elderly. Nobody can say whether the reasoning behind it is the reasoning in the recording. \n\nShe declines to say she has changed her mind. However, when pressed multiple, she eventually says she will not perform a recantation of her presentation if she cannot say it is sincere.\n\nSince the recording surfaced, emergency calls from the city's over-seventies have fallen eleven percent. The clinical director believes some of those are people who should be calling and are not, but cannot say how many.\n\nThe council may dismiss her without cause. There are other competent successor options, but none directly comparable to her and her results. ",
+      "question": "Should she be removed from her post?",
+      "option_a_text": "Yes. Public office rests on public trust, and no one who once argued that some lives are less deserving of medical attention can hold that much power.",
+      "option_b_text": "No. She should be judged by years of work and positive results, not twelve-year-old words, and removing her punishes the patients she is actively saving.",
+      "result": {
+        "a": 11,
+        "b": 15,
+        "total": 26,
+        "a_pct": 42,
+        "b_pct": 58
+      }
+    },
+    {
       "date": "2026-08-15",
       "id": "a17ee178-beb8-4d72-9d9b-87775ad5d650",
       "category_label": "MEDICINE",
