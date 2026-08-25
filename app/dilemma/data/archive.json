@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-08-23",
+      "id": "d9b8e645-0d04-4bbc-b7be-ee78073ee219",
+      "category_label": "FAMILY",
+      "title": "The Donor",
+      "byline": "by Cerno",
+      "scenario": "Elena is dying of liver failure. Her brother Marco is the only compatible living donor. He offers a lobe of his liver, which will save her life, but he sets one condition: she must first tell their elderly mother the truth about the fire that killed their father twenty years ago. Elena caused it, by accident, as a teenager. Marco took the blame to protect her, and their mother has grieved him as a reckless boy ever since.\n\nMarco says he has carried the lie long enough, and that he cannot give his sister his body while she lets their mother die believing a falsehood about him. Elena says the truth would shatter their mother in her final years, and that Marco is using a scalpel to force a confession.\n\nWithout the surgery, Elena dies within months. With it, their mother learns what her daughter did.",
+      "question": "Should Elena meet his condition?",
+      "option_a_text": "She should tell the truth. Marco has a right not to give his own flesh while remaining a scapegoat, and their mother deserves to know her son.",
+      "option_b_text": "She should refuse. A life-saving gift extracted by ultimatum is coercion, and sparing a frail old woman needless anguish is its own duty.",
+      "result": {
+        "a": 10,
+        "b": 0,
+        "total": 10,
+        "a_pct": 100,
+        "b_pct": 0
+      }
+    },
+    {
       "date": "2026-08-19",
       "id": "6e7d44b5-5360-4702-9dee-db413b26089a",
       "category_label": "FAMILY AND PARENTHOOD",
