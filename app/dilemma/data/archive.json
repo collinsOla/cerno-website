@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-08-26",
+      "id": "30ca00af-a8c0-4244-aa29-f5638a34f6d3",
+      "category_label": "POLICING AND TECHNOLOGY",
+      "title": "The Match",
+      "byline": "by Cerno",
+      "scenario": "A city police force runs facial recognition against live camera feeds in the transit stations. The system flags people wanted on outstanding warrants. Its published accuracy is high, but for every twenty people it flags, roughly one is the wrong person, pulled aside, searched, and held for as long as it takes to establish they are someone else.\n\nIn its first year the system led to the arrest of eleven men wanted for serious violence, including two for offences against children. It also produced four hundred wrongful stops, most of them of people who had done nothing at all and who now avoid the station.\n\nThe council must decide whether to keep it running. There is no version of the technology that flags the eleven without stopping the four hundred.\n\nAdditionally, the wrongful stops are not evenly spread: the error rate is roughly four times higher for some faces than for others, and those are the faces most common in the neighbourhoods the stations serve.",
+      "question": "Should the city keep the system running?",
+      "option_a_text": "Shut it down. A free city does not seize hundreds of innocent people to catch eleven guilty ones, however dangerous they are.",
+      "option_b_text": "Keep it running. Eleven violent men are off the streets, and the same neighbourhoods bearing the stops are the ones where the crimes exist.",
+      "result": {
+        "a": 10,
+        "b": 6,
+        "total": 16,
+        "a_pct": 63,
+        "b_pct": 37
+      }
+    },
+    {
       "date": "2026-08-23",
       "id": "d9b8e645-0d04-4bbc-b7be-ee78073ee219",
       "category_label": "FAMILY",

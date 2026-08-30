@@ -1,11 +1,11 @@
 {
-  "date": "2026-08-26",
-  "id": "30ca00af-a8c0-4244-aa29-f5638a34f6d3",
-  "category_label": "POLICING AND TECHNOLOGY",
-  "title": "The Match",
+  "date": "2026-08-30",
+  "id": "4a658a35-58e7-4b4c-83bf-b278c2cee33b",
+  "category_label": "MEDICINE",
+  "title": "The Licence",
   "byline": "by Cerno",
-  "scenario": "A city police force runs facial recognition against live camera feeds in the transit stations. The system flags people wanted on outstanding warrants. Its published accuracy is high, but for every twenty people it flags, roughly one is the wrong person, pulled aside, searched, and held for as long as it takes to establish they are someone else.\n\nIn its first year the system led to the arrest of eleven men wanted for serious violence, including two for offences against children. It also produced four hundred wrongful stops, most of them of people who had done nothing at all and who now avoid the station.\n\nThe council must decide whether to keep it running. There is no version of the technology that flags the eleven without stopping the four hundred.\n\nAdditionally, the wrongful stops are not evenly spread: the error rate is roughly four times higher for some faces than for others, and those are the faces most common in the neighbourhoods the stations serve.",
-  "question": "Should the city keep the system running?",
-  "option_a_text": "Shut it down. A free city does not seize hundreds of innocent people to catch eleven guilty ones, however dangerous they are.",
-  "option_b_text": "Keep it running. Eleven violent men are off the streets, and the same neighbourhoods bearing the stops are the ones where the crimes exist."
+  "scenario": "A GP has treated Marta for eleven years. She is seventy-nine, lives alone on a farm road nine miles from the nearest shop, and drives to the surgery herself. Her last two visits revealed a slow decline in reaction time and short-term memory. She has had no accidents. She did have one near miss she mentioned herself, laughing, at a junction she has used for fifty years.\n\nThe doctor can report her to the licensing authority. Reporting means the licence goes, almost certainly for good. Without it she cannot reach the shop, the church hall, or her sister. Being able to do all of this keeps Marta happy and motivated. She has said plainly that the day she stops driving is the day she stops living.\n\nThe clinical picture is ambiguous. She is not clearly unsafe. She is no longer clearly safe. The people who would share the road with her have no name and no say.",
+  "question": "Should the doctor report her?",
+  "option_a_text": "Report her. The road belongs to everyone, and no one else gets a vote on the risk she poses to them. It is not worth the gamble.",
+  "option_b_text": "Do not report her. Dismantling a real, specific life on an ambiguous suspicion is a harm you can see, inflicted for a danger you are unsure of."
 }
