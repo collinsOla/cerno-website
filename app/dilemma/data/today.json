@@ -1,11 +1,11 @@
 {
-  "date": "2026-08-30",
-  "id": "4a658a35-58e7-4b4c-83bf-b278c2cee33b",
-  "category_label": "MEDICINE",
-  "title": "The Licence",
+  "date": "2026-09-02",
+  "id": "ab7e2fd8-2f12-4c6c-ab23-eb9ab8891e50",
+  "category_label": "EDUCATION",
+  "title": "The Passing Grade",
   "byline": "by Cerno",
-  "scenario": "A GP has treated Marta for eleven years. She is seventy-nine, lives alone on a farm road nine miles from the nearest shop, and drives to the surgery herself. Her last two visits revealed a slow decline in reaction time and short-term memory. She has had no accidents. She did have one near miss she mentioned herself, laughing, at a junction she has used for fifty years.\n\nThe doctor can report her to the licensing authority. Reporting means the licence goes, almost certainly for good. Without it she cannot reach the shop, the church hall, or her sister. Being able to do all of this keeps Marta happy and motivated. She has said plainly that the day she stops driving is the day she stops living.\n\nThe clinical picture is ambiguous. She is not clearly unsafe. She is no longer clearly safe. The people who would share the road with her have no name and no say.",
-  "question": "Should the doctor report her?",
-  "option_a_text": "Report her. The road belongs to everyone, and no one else gets a vote on the risk she poses to them. It is not worth the gamble.",
-  "option_b_text": "Do not report her. Dismantling a real, specific life on an ambiguous suspicion is a harm you can see, inflicted for a danger you are unsure of."
+  "scenario": "A small state secondary school in a small, poor district will be closed and its pupils dispersed if its exam results fall below the national threshold for a third year. The nearest alternative school is an hour's bus ride away and is itself overcrowded.\n\nThe head of examinations has quietly raised borderline marks on internally assessed coursework for the past two years. The margin is small: a few points on a few dozen papers each summer. It has kept the school open. Teachers have stayed, a breakfast club has continued, and attendance among the poorest pupils has risen.\n\nThe deputy head has now found the pattern. Every inflated grade was awarded to a real pupil who did not earn it, and a small few of those pupils have gone on to courses they were not prepared for. Reporting it will almost certainly close the school within the year. Saying nothing lets the practice continue.",
+  "question": "Should the deputy head report the grade inflation?",
+  "option_a_text": "Report it. A grade that certifies something untrue corrupts the whole point of examining, and no good outcome is built on a lie about a child's work.",
+  "option_b_text": "Say nothing. Closing the school would harm hundreds of children far more than a few points on a coursework mark ever could."
 }
