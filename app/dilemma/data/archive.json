@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-09-02",
+      "id": "ab7e2fd8-2f12-4c6c-ab23-eb9ab8891e50",
+      "category_label": "EDUCATION",
+      "title": "The Passing Grade",
+      "byline": "by Cerno",
+      "scenario": "A small state secondary school in a small, poor district will be closed and its pupils dispersed if its exam results fall below the national threshold for a third year. The nearest alternative school is an hour's bus ride away and is itself overcrowded.\n\nThe head of examinations has quietly raised borderline marks on internally assessed coursework for the past two years. The margin is small: a few points on a few dozen papers each summer. It has kept the school open. Teachers have stayed, a breakfast club has continued, and attendance among the poorest pupils has risen.\n\nThe deputy head has now found the pattern. Every inflated grade was awarded to a real pupil who did not earn it, and a small few of those pupils have gone on to courses they were not prepared for. Reporting it will almost certainly close the school within the year. Saying nothing lets the practice continue.",
+      "question": "Should the deputy head report the grade inflation?",
+      "option_a_text": "Report it. A grade that certifies something untrue corrupts the whole point of examining, and no good outcome is built on a lie about a child's work.",
+      "option_b_text": "Say nothing. Closing the school would harm hundreds of children far more than a few points on a coursework mark ever could.",
+      "result": {
+        "a": 3,
+        "b": 7,
+        "total": 10,
+        "a_pct": 30,
+        "b_pct": 70
+      }
+    },
+    {
       "date": "2026-08-30",
       "id": "4a658a35-58e7-4b4c-83bf-b278c2cee33b",
       "category_label": "MEDICINE",

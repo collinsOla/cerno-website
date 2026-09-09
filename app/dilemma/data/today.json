@@ -1,11 +1,11 @@
 {
-  "date": "2026-09-02",
-  "id": "ab7e2fd8-2f12-4c6c-ab23-eb9ab8891e50",
-  "category_label": "EDUCATION",
-  "title": "The Passing Grade",
+  "date": "2026-09-09",
+  "id": "cde825ee-8e6e-47fb-8ec1-f8616953da05",
+  "category_label": "MONEY AND WORK",
+  "title": "The Ledger",
   "byline": "by Cerno",
-  "scenario": "A small state secondary school in a small, poor district will be closed and its pupils dispersed if its exam results fall below the national threshold for a third year. The nearest alternative school is an hour's bus ride away and is itself overcrowded.\n\nThe head of examinations has quietly raised borderline marks on internally assessed coursework for the past two years. The margin is small: a few points on a few dozen papers each summer. It has kept the school open. Teachers have stayed, a breakfast club has continued, and attendance among the poorest pupils has risen.\n\nThe deputy head has now found the pattern. Every inflated grade was awarded to a real pupil who did not earn it, and a small few of those pupils have gone on to courses they were not prepared for. Reporting it will almost certainly close the school within the year. Saying nothing lets the practice continue.",
-  "question": "Should the deputy head report the grade inflation?",
-  "option_a_text": "Report it. A grade that certifies something untrue corrupts the whole point of examining, and no good outcome is built on a lie about a child's work.",
-  "option_b_text": "Say nothing. Closing the school would harm hundreds of children far more than a few points on a coursework mark ever could."
+  "scenario": "An accountant at a family-owned haulage firm finds that the directors have been quietly falsifying the company's accounts for eleven years. The fraud is real, deliberate, and ongoing. Customers and lenders have been deceived.\n\nIf she reports it, the regulator will act. The firm will almost certainly be wound up. Four hundred drivers and warehouse staff will lose their jobs in a town with little other work, and the company pension scheme, already underfunded, will collapse into a rescue fund that pays reduced benefits. Men who have worked there for thirty years will retire on substantially less than they were promised. No remedy options will be available to them. None of them knew anything.\n\nIf she says nothing, the deception continues. The lenders keep extending credit on false figures. The staff keep their jobs and, for now, their pensions.\n\nShe is the only person outside the boardroom who has seen the ledgers.",
+  "question": "Should she report the fraud?",
+  "option_a_text": "Report it. The truth is not hers to suppress, and a workforce cannot be paid in someone else's deception.",
+  "option_b_text": "Stay silent. Four hundred innocent people would bear the punishment for a crime committed above them."
 }
