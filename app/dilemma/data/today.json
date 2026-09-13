@@ -1,11 +1,11 @@
 {
-  "date": "2026-09-09",
-  "id": "cde825ee-8e6e-47fb-8ec1-f8616953da05",
-  "category_label": "MONEY AND WORK",
-  "title": "The Ledger",
+  "date": "2026-09-13",
+  "id": "ce87dcc9-9aea-4c3d-8d26-46788da25956",
+  "category_label": "FAMILY OBLIGATION",
+  "title": "The Last Bed",
   "byline": "by Cerno",
-  "scenario": "An accountant at a family-owned haulage firm finds that the directors have been quietly falsifying the company's accounts for eleven years. The fraud is real, deliberate, and ongoing. Customers and lenders have been deceived.\n\nIf she reports it, the regulator will act. The firm will almost certainly be wound up. Four hundred drivers and warehouse staff will lose their jobs in a town with little other work, and the company pension scheme, already underfunded, will collapse into a rescue fund that pays reduced benefits. Men who have worked there for thirty years will retire on substantially less than they were promised. No remedy options will be available to them. None of them knew anything.\n\nIf she says nothing, the deception continues. The lenders keep extending credit on false figures. The staff keep their jobs and, for now, their pensions.\n\nShe is the only person outside the boardroom who has seen the ledgers.",
-  "question": "Should she report the fraud?",
-  "option_a_text": "Report it. The truth is not hers to suppress, and a workforce cannot be paid in someone else's deception.",
-  "option_b_text": "Stay silent. Four hundred innocent people would bear the punishment for a crime committed above them."
+  "scenario": "A hospice in a small town has one bed and two people waiting for it. Both are dying, both are in pain, and neither will last long at home without round-the-clock nursing their families cannot provide.\n\nOne is a retired bus driver with no relatives nearby. The other is the mother of Ruth, the nurse who runs the ward and who, by long-standing practice, decides admissions when the doctors are split.\n\nOn every clinical measure the two are equal. There is no tie-breaker in the guidelines, and no one else available to make the call today. Ruth has cared for her mother alone for three years.\n\nIf she gives the bed to her mother, she has used a public resource for her own blood. If she gives it to the stranger, she has chosen a man she has never met over the woman who raised her, and she will nurse her mother's death in a back bedroom herself.",
+  "question": "Should Ruth give the bed to her mother?",
+  "option_a_text": "Yes. A daughter who can save her own mother and hands the bed to a stranger has abandoned the one duty no institution can discharge for her.",
+  "option_b_text": "No. The bed belongs to whoever needs it, not to whoever is loved by the person holding the keys; that is the whole meaning of a public ward."
 }

@@ -1,6 +1,24 @@
 {
   "days": [
     {
+      "date": "2026-09-09",
+      "id": "cde825ee-8e6e-47fb-8ec1-f8616953da05",
+      "category_label": "MONEY AND WORK",
+      "title": "The Ledger",
+      "byline": "by Cerno",
+      "scenario": "An accountant at a family-owned haulage firm finds that the directors have been quietly falsifying the company's accounts for eleven years. The fraud is real, deliberate, and ongoing. Customers and lenders have been deceived.\n\nIf she reports it, the regulator will act. The firm will almost certainly be wound up. Four hundred drivers and warehouse staff will lose their jobs in a town with little other work, and the company pension scheme, already underfunded, will collapse into a rescue fund that pays reduced benefits. Men who have worked there for thirty years will retire on substantially less than they were promised. No remedy options will be available to them. None of them knew anything.\n\nIf she says nothing, the deception continues. The lenders keep extending credit on false figures. The staff keep their jobs and, for now, their pensions.\n\nShe is the only person outside the boardroom who has seen the ledgers.",
+      "question": "Should she report the fraud?",
+      "option_a_text": "Report it. The truth is not hers to suppress, and a workforce cannot be paid in someone else's deception.",
+      "option_b_text": "Stay silent. Four hundred innocent people would bear the punishment for a crime committed above them.",
+      "result": {
+        "a": 2,
+        "b": 4,
+        "total": 6,
+        "a_pct": 33,
+        "b_pct": 67
+      }
+    },
+    {
       "date": "2026-09-02",
       "id": "ab7e2fd8-2f12-4c6c-ab23-eb9ab8891e50",
       "category_label": "EDUCATION",
